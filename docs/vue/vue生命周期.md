@@ -1,0 +1,26 @@
+---
+title: vue生命周期
+date: 2020-08-04 21:32:12
+permalink: /pages/4331e9/
+categories: 
+  - vue
+tags: 
+  - 
+---
+::: tip
+  Vue
+:::
+
+::: warning
+  这是一个警告
+:::
+
+::: danger
+  这是一个危险警告
+:::
+
+::: details
+  这是一个详情块，在 IE / Edge 中不生效
+:::::: tip
+  这是一个提示
+:::

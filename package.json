@@ -1,0 +1,17 @@
+{
+  "name": "vuepress-blog",
+  "version": "1.0.0",
+  "description": "A Vuepress blog project",
+  "main": "index.js",
+  "scripts": {
+    "dev": "vuepress dev docs",
+    "build": "vuepress build docs"
+  },
+  "keywords": [],
+  "author": "Xiaojun996 <xibie@gmail.com>",
+  "license": "ISC",
+  "devDependencies": {
+    "vuepress": "^1.5.2",
+    "vuepress-theme-vdoing": "^1.4.0"
+  }
+}
