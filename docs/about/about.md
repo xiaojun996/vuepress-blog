@@ -8,9 +8,9 @@ article: false
 
 
 ### 😈Me
-从事Web前端开发工作，喜欢唱、跳、rap、篮球，写程序。 本人↓↓↓
+从事Web前端开发工作，喜欢动漫、游戏、电影、健身、运动、写程序。 本人↓↓↓
 
-<img src='https://cdn.jsdelivr.net/gh/xugaoyi/image_store/blog/20200103123203.jpg' alt='本人照片' style="width:106px;">
+<img src='https://cdn.jsdelivr.net/gh/xiaojun996/CDN/images/wechat-img.png' alt='本人照片' style="width:106px;">
 
 
 ## 联系
