@@ -7,7 +7,7 @@ module.exports = [
       { text: 'CSS', link: '/css/' },
     ],
   },
-  { text: '关于', link: '/about/about.md' },
+  { text: '关于', link: '/about/01.about.md' },
   { text: 'Twitter', link: 'https://twitter.com/Luka_ai', target: '_blank' },
   { text: 'GitHub', link: 'https://github.com/xiaojun996/', target: '_blank' },
 ]
