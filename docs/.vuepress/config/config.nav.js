@@ -1,4 +1,5 @@
 module.exports = [
+  { text: '算法', link: '/pages/c8d0c9/' },
   {
     text: '学习笔记',
     items: [
