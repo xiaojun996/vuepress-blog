@@ -1,7 +1,7 @@
 module.exports = [
   {
     text: '文档',
-    items: [{ text: 'ECMA Script 2015+ 文档', link: '/pages/65966f/' }],
+    items: [{ text: 'ECMAScript2015+文档', link: '/pages/65966f/' }],
   },
   { text: '算法笔记', link: '/pages/c8d0c9/' },
   {
