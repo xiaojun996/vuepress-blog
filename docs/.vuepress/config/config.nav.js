@@ -1,11 +1,15 @@
 module.exports = [
-  { text: '算法', link: '/pages/c8d0c9/' },
   {
-    text: '学习笔记',
+    text: '文档',
+    items: [{ text: 'ECMA Script 2015+ 文档', link: '/pages/65966f/' }],
+  },
+  { text: '算法笔记', link: '/pages/c8d0c9/' },
+  {
+    text: '前端笔记',
     items: [
-      { text: 'JavaScript', link: '/pages/6e2f5c/' },
-      { text: 'Vue', link: '/pages/4331e9/' },
-      { text: 'CSS', link: '/pages/b9190a/' },
+      { text: 'JavaScript笔记', link: '/pages/6e2f5c/' },
+      { text: 'Vue笔记', link: '/pages/4331e9/' },
+      { text: 'CSS笔记', link: '/pages/b9190a/' },
     ],
   },
   { text: '关于', link: '/pages/10790c/' },
