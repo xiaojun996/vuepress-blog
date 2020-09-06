@@ -8,10 +8,10 @@
     "build": "vuepress build docs"
   },
   "keywords": [],
-  "author": "Xiaojun996 <xibie@gmail.com>",
+  "author": "xiaojun996 <xibie@gmail.com>",
   "license": "ISC",
   "devDependencies": {
-    "vuepress": "^1.5.2",
-    "vuepress-theme-vdoing": "^1.4.0"
+    "vuepress": "^1.5.4",
+    "vuepress-theme-vdoing": "^1.4.4"
   }
 }
