@@ -1,7 +1,10 @@
 module.exports = [
   {
     text: '文档',
-    items: [{ text: 'ECMAScript6文档', link: '/pages/65966f/' }],
+    items: [
+      { text: 'ECMAScript6文档', link: '/pages/65966f/' },
+      { text: 'Bash脚本文档', link: '/pages/e89ffe/' },
+    ],
   },
   { text: '算法笔记', link: '/pages/c8d0c9/' },
   {
