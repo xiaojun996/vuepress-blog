@@ -1,11 +1,4 @@
 module.exports = [
-  {
-    text: '文档',
-    items: [
-      { text: 'ECMAScript6文档', link: '/pages/65966f/' },
-      { text: 'Bash脚本文档', link: '/pages/e89ffe/' },
-    ],
-  },
   { text: '算法笔记', link: '/pages/c8d0c9/' },
   {
     text: '前端笔记',
@@ -13,6 +6,13 @@ module.exports = [
       { text: 'JavaScript笔记', link: '/pages/1e2d74/' },
       { text: 'Vue笔记', link: '/pages/4331e9/' },
       { text: 'CSS笔记', link: '/pages/b9190a/' },
+    ],
+  },
+  {
+    text: '文档',
+    items: [
+      { text: 'ECMAScript6文档', link: '/pages/65966f/' },
+      { text: 'Bash脚本文档', link: '/pages/e89ffe/' },
     ],
   },
   { text: '关于', link: '/pages/10790c/' },
