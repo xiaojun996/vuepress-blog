@@ -50,6 +50,22 @@ module.exports = {
         ],
       },
     ],
+    [
+      'vuepress-plugin-comment',
+      {
+        choosen: 'gitalk',
+        options: {
+          clientID: '75a9348ccc20817c9860',
+          clientSecret: 'a98651f4a65203ecdb4db26cdd09f9f58d1b1371',
+          repo: 'xiaojun996',
+          owner: 'xiaojun996',
+          admin: ['xiaojun996'],
+          distractionFreeMode: false,
+          pagerDirection: 'last', // 'first'正序 | 'last'倒序
+          labels: ["Gitalk", "Comment"], // GitHub issue 的标签
+        },
+      },
+    ],
   ],
   theme: 'vdoing', // 使用依赖包主题
   themeConfig: {
@@ -93,7 +109,7 @@ module.exports = {
     footer: {
       // 页脚信息
       createYear: 2019, // 博客创建年份
-      copyrightInfo: 'xiaojun996',
+      copyrightInfo: 'xiaojun996 备案号：闽ICP备20001770号',
     },
   },
 }
