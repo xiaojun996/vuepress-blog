@@ -9,13 +9,19 @@ module.exports = [
     ],
   },
   {
-    text: '文档',
+    text: 'Document',
     items: [
       { text: 'ECMAScript6文档', link: '/pages/65966f/' },
       { text: 'Bash脚本文档', link: '/pages/e89ffe/' },
     ],
   },
-  { text: '关于', link: '/pages/10790c/' },
-  { text: 'Twitter', link: 'https://twitter.com/Luka_ai', target: '_blank' },
-  { text: 'GitHub', link: 'https://github.com/xiaojun996/', target: '_blank' },
+  { text: 'About', link: '/pages/10790c/' },
+  {
+    text: 'Contact',
+    items: [
+      { text: '掘金', link: 'https://juejin.im/user/2436173499732936', target: '_blank' },
+      { text: 'GitHub', link: 'https://github.com/xiaojun996/', target: '_blank' },
+      { text: 'Twitter', link: 'https://twitter.com/Luka_ai', target: '_blank' },
+    ],
+  },
 ]
