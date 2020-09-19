@@ -24,12 +24,35 @@ module.exports = {
       },
     ], // 移动端阻止页面缩放
   ],
+  plugins: [
+    ['thirdparty-search', {
+      thirdparty: [ // 可选，默认 []
+        {
+          title: '在MDN中搜索', // 在搜索结果显示的文字
+          frontUrl: 'https://developer.mozilla.org/zh-CN/search?q=', // 搜索链接的前面部分
+          behindUrl: '' // 搜索链接的后面部分，可选，默认 ''
+        },
+        {
+          title: '在Runoob中搜索',
+          frontUrl: 'https://www.runoob.com/?s=',
+        },
+        {
+          title: '在Vue API中搜索',
+          frontUrl: 'https://cn.vuejs.org/v2/api/#',
+        },
+        {
+          title: '通过百度搜索本站的',
+          frontUrl: 'https://www.baidu.com/s?wd=site%3Axugaoyi.com%20'
+        }
+      ]
+    }], 
+  ],
   theme: 'vdoing', // 使用依赖包主题
   themeConfig: {
     sidebarDepth: 2, // 侧边栏显示深度，默认1，最大2（显示到h3标题）
     nav,
     sidebar: 'structuring', // 'structuring' | { mode: 'structuring', collapsable: Boolean} | 'auto' | 自定义
-    search: false,
+    search: true,
     lastUpdated: 'Last Updated',
     author: {
       // 文章默认的作者信息，可在md文件中单独配置此信息 String | {name: String, link: String}
