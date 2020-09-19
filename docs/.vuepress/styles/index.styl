@@ -1,0 +1,15 @@
+.gt-container {
+  /* 修复评论markdown图标不对齐 */
+  .gt-ico {
+    display: flex !important;
+    align-items: center !important;
+  }
+
+  .gt-ico-tip {
+    &::after {
+      content: ' ( win + . ) 或 ( ctrl + command + space ) 打开表情';
+      color: #999;
+      font-size: 0.8rem;
+    }
+  }
+}
