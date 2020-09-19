@@ -61,7 +61,7 @@ module.exports = {
     },
     blogger: {
       // 博主信息，显示在首页侧边栏
-      avatar: 'https://cdn.jsdelivr.net/gh/xiaojun996/CDN/images/wechat-img.png',
+      avatar: 'https://cdn.jsdelivr.net/gh/xiaojun996/CDN/images/profile/02.比企谷八幡.png',
       name: 'xiaojun',
       slogan: '没有期待就没有失望 没有羁绊就不会受伤。',
     },
