@@ -3,7 +3,7 @@ import 'APlayer/dist/APlayer.min.css'
 import APlayer from 'APlayer'
 
 export default {
-  name: 'APlayer',
+  name: 'VuepressPluginAPlayer',
   mounted() {
     this.initAPlayer()
   },
@@ -13,7 +13,7 @@ export default {
      */
     initAPlayer() {
       const ap = new APlayer({
-        container: document.getElementById('player'),
+        container: document.getElementById('VuepressPluginAPlayer'),
         fixed: true,
         volume: 0.2,
         theme: '#1da1f2',
@@ -29,7 +29,7 @@ export default {
     },
   },
   render() {
-    return <div id="player"></div>
+    return <div id="VuepressPluginAPlayer"></div>
   },
 }
 </script>
