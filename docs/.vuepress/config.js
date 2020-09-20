@@ -1,12 +1,20 @@
 const nav = require('./config/config.nav')
+const plugins = require('./config/config.plugins')
+const theme = require('./config/config.theme')
 
 module.exports = {
   title: 'xiaojun996',
   description: 'haha~',
   dest: './dist',
+  /**
+   * 注入到页面<head> 中的标签，格式[tagName, { attrName: attrValue }, innerHTML?]
+   */
   head: [
-    // 注入到页面<head> 中的标签，格式[tagName, { attrName: attrValue }, innerHTML?]
-    ['link', { rel: 'icon', href: '/img/favicon.ico' }], // favicons，资源放在public文件夹
+    [
+      // favicons，资源放在public文件夹
+      'link',
+      { rel: 'icon', href: '/img/favicon.ico' },
+    ],
     [
       'meta',
       {
@@ -15,111 +23,24 @@ module.exports = {
           '前端博客,个人技术博客,前端,前端开发,前端框架,web前端,前端面试题,技术文档,学习,面试,JavaScript,js,ES6,TypeScript,vue,python,css3,html5,Node,git,github,markdown',
       },
     ],
-    ['meta', { name: 'theme-color', content: '#11a8cd' }], // 移动浏览器主题颜色
     [
+      // 移动浏览器主题颜色
+      'meta',
+      { name: 'theme-color', content: '#11a8cd' },
+    ],
+    [
+      // 移动端阻止页面缩放
       'meta',
       {
         name: 'viewport',
         content: 'width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no',
       },
-    ], // 移动端阻止页面缩放
-  ],
-  plugins: [
-    [
-      'thirdparty-search',
-      {
-        // 可选，默认 []
-        thirdparty: [
-          {
-            title: '在MDN中搜索', // 在搜索结果显示的文字
-            frontUrl: 'https://developer.mozilla.org/zh-CN/search?q=', // 搜索链接的前面部分
-            behindUrl: '', // 搜索链接的后面部分，可选，默认 ''
-          },
-          {
-            title: '在Runoob中搜索',
-            frontUrl: 'https://www.runoob.com/?s=',
-          },
-          {
-            title: '在Vue API中搜索',
-            frontUrl: 'https://cn.vuejs.org/v2/api/#',
-          },
-          {
-            title: '通过百度搜索本站的',
-            frontUrl: 'https://www.baidu.com/s?wd=site%3Axugaoyi.com%20',
-          },
-        ],
-      },
-    ],
-    [
-      'one-click-copy',
-      {
-        // 代码块复制按钮
-        copySelector: ['div[class*="language-"] pre', 'div[class*="aside-code"] aside'], // String or Array
-        copyMessage: '复制成功', // default is 'Copy successfully and then paste it for use.'
-        duration: 1000, // prompt message display time.
-        showInMobile: false, // whether to display on the mobile side, default: false.
-      },
-    ],
-    [
-      'vuepress-plugin-comment',
-      {
-        choosen: 'gitalk',
-        options: {
-          clientID: '75a9348ccc20817c9860',
-          clientSecret: 'a98651f4a65203ecdb4db26cdd09f9f58d1b1371',
-          repo: 'xiaojun996',
-          owner: 'xiaojun996',
-          admin: ['xiaojun996'],
-          distractionFreeMode: false,
-          pagerDirection: 'last', // 'first'正序 | 'last'倒序
-          labels: ['Gitalk', 'Comment'], // GitHub issue 的标签
-        },
-      },
     ],
   ],
+  plugins,
   theme: 'vdoing', // 使用依赖包主题
   themeConfig: {
-    sidebarDepth: 2, // 侧边栏显示深度，默认1，最大2（显示到h3标题）
     nav,
-    sidebar: 'structuring', // 'structuring' | { mode: 'structuring', collapsable: Boolean} | 'auto' | 自定义
-    search: true,
-    lastUpdated: 'Last Updated',
-    author: {
-      // 文章默认的作者信息，可在md文件中单独配置此信息 String | {name: String, link: String}
-      name: 'xiaojun', // 必需
-      link: 'https://github.com/xiaojun996', // 可选的
-    },
-    blogger: {
-      // 博主信息，显示在首页侧边栏
-      avatar: 'https://cdn.jsdelivr.net/gh/xiaojun996/CDN/images/profile/02.比企谷八幡.png',
-      name: 'xiaojun',
-      slogan: '没有期待就没有失望 没有羁绊就不会受伤。',
-    },
-    social: {
-      // 社交图标，显示于博主信息栏和页脚栏
-      // iconfontCssFile: '//at.alicdn.com/t/font_1678482_u4nrnp8xp6g.css', // 可选，阿里图标库在线css文件地址，对于主题没有的图标可自由添加
-      icons: [
-        {
-          iconClass: 'icon-youjian',
-          title: '发邮件',
-          link: 'mailto:blueskyzx@icloud.com',
-        },
-        {
-          iconClass: 'icon-github',
-          title: 'GitHub',
-          link: 'https://github.com/xiaojun996',
-        },
-        {
-          iconClass: 'icon-erji',
-          title: '听音乐',
-          link: 'https://music.163.com/#/playlist?id=37753340',
-        },
-      ],
-    },
-    footer: {
-      // 页脚信息
-      createYear: 2019, // 博客创建年份
-      copyrightInfo: 'xiaojun996 备案号：闽ICP备20001770号',
-    },
+    ...theme,
   },
 }
