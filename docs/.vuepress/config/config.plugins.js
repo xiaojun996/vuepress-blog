@@ -50,4 +50,9 @@ module.exports = [
       },
     },
   ],
+  {
+    // 本地插件
+    name: 'vuepress-plugin-aplayer',
+    globalUIComponents: ['APlayer'],
+  },
 ]
