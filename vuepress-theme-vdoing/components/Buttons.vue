@@ -92,11 +92,9 @@ export default {
     }
   },
 
-  created() {
-    this.modeObserver()
-  },
-
   mounted () {
+    this.modeObserver()
+
     this.currentMode = storage.get('mode') || 'auto'
 
     this.scrollTop = this.getScrollTop()
@@ -135,7 +133,6 @@ export default {
         }, 150)
       })
     }
-
   },
 
   computed: {

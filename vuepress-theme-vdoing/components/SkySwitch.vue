@@ -20,6 +20,9 @@ export default {
 
   created() {
     this.modeSwitch = storage.get('mode') === 'dark' ? true : false
+  },
+
+  mounted() {
     this.modeObserver()
   },
 
