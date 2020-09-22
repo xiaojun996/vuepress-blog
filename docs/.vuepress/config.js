@@ -9,7 +9,8 @@ module.exports = {
   dest: './dist',
   head,
   plugins,
-  theme: 'vdoing', // 使用依赖包主题
+  // theme: 'vdoing', // 使用依赖包主题
+  theme: require.resolve('../../vuepress-theme-vdoing'), // 使用本地主题
   themeConfig: {
     nav,
     ...theme,
