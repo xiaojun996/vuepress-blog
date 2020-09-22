@@ -88,6 +88,7 @@ export default {
   align-items: center;
   margin: 0 1rem;
   width: 100%;
+
   // 按钮宽度
   $button-width: 3rem;
   // 按钮高度
@@ -101,15 +102,8 @@ export default {
   // 开关 长按时候宽度
   $toggle-wider: 2.01rem;
   // 浅灰色
-  $color-grey: #888282;
-  // 开关 开的时候背景颜色
-  $color-green: #11a8cd;
-  @media (prefers-color-scheme: dark) {
-    $color-grey: #39393d;
-  }
-  @media (prefers-color-scheme: light) {
-    $color-grey: #e9e9e9;
-  }
+  $color-grey: var(--stitchColor);
+
   /* 按钮外部 */
   div {
     position: relative;
@@ -121,6 +115,7 @@ export default {
     /* 按钮🔘 */
     &::after {
       content: '🌝';
+      cursor: pointer;
       position: absolute;
       top: $button-toggle-offset;
       display: flex;
@@ -141,7 +136,6 @@ export default {
     /* 如过按钮是开，背景颜色变色，加上移动动画，并且 影子在左边 */
     &:checked {
       & + div {
-        background: $color-green;
         &::after {
           content: '🌚';
           transform: translateX($button-width - $toggle-diameter - $button-toggle-offset);
