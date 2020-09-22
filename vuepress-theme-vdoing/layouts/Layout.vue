@@ -8,6 +8,7 @@
     <Navbar
       v-if="shouldShowNavbar"
       @toggle-sidebar="toggleSidebar"
+      @toggle-theme-mode="toggleThemeMode"
     />
 
     <div
@@ -20,11 +21,11 @@
       @toggle-sidebar="toggleSidebar"
       v-show="showSidebar"
     >
-      <slot
+      <template
         name="sidebar-top"
         #top
       />
-      <slot
+      <template
         name="sidebar-bottom"
         #bottom
       />
@@ -47,11 +48,11 @@
       v-else
       :sidebar-items="sidebarItems"
     >
-      <slot
+      <template
         name="page-top"
         #top
       />
-      <slot
+      <template
         name="page-bottom"
         #bottom
       />

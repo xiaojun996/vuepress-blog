@@ -26,6 +26,7 @@
         'max-width': linksWrapMaxWidth + 'px'
       } : {}"
     >
+      <SkySwitch @toggle-theme-mode="mode => this.$emit('toggle-theme-mode', mode)" />
       <AlgoliaSearchBox
         v-if="isAlgoliaSearch"
         :options="algolia"
@@ -41,9 +42,10 @@ import AlgoliaSearchBox from '@AlgoliaSearchBox'
 import SearchBox from '@SearchBox'
 import SidebarButton from '@theme/components/SidebarButton.vue'
 import NavLinks from '@theme/components/NavLinks.vue'
+import SkySwitch from '@theme/components/SkySwitch.vue'
 
 export default {
-  components: { SidebarButton, NavLinks, SearchBox, AlgoliaSearchBox },
+  components: { SidebarButton, NavLinks, SearchBox, AlgoliaSearchBox,SkySwitch },
 
   data () {
     return {
