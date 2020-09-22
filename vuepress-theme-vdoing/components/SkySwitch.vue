@@ -1,13 +1,15 @@
 <script>
+import storage from 'good-storage' // 本地存储
+
 export default {
   name: 'SkySwitch',
   data() {
     return {
-      modeSwitch: false
+      modeSwitch: false,
     }
   },
   methods: {
-    onMyInfoShow(mode) {
+    onMyInfoShow() {
       let timer = setTimeout(() => {
         this.modeSwitch = !this.modeSwitch
         this.$emit('toggle-theme-mode', this.modeSwitch ? 'dark' : 'light')
@@ -15,11 +17,18 @@ export default {
       }, 200)
     },
   },
+  created() {
+    this.modeSwitch = storage.get('mode') === 'dark' ? true : false
+  },
+  mounted() {
+    this.$refs['toggle'].checked = this.modeSwitch
+  },
   render() {
     return (
       <div class="sky-switch">
         <label for="toggle">
           <input
+            ref="toggle"
             id="toggle"
             type="checkbox"
             onClick={() => {
@@ -98,8 +107,7 @@ export default {
         &::after {
           content: '🌚';
           transform: translateX($button-width - $toggle-diameter - $button-toggle-offset);
-          box-shadow: ($toggle-shadow-offset) * (-1) 0 ($toggle-shadow-offset) * 4
-            rgba(0, 0, 0, 0.1);
+          box-shadow: ($toggle-shadow-offset) * (-1) 0 ($toggle-shadow-offset) * 4 rgba(0, 0, 0, 0.1);
         }
       }
     }
