@@ -24,13 +24,13 @@
       <transition name="mode">
         <ul class="select-box" ref="modeBox" v-show="showModeBox" @click.stop @touchstart.stop>
           <li
-          v-for="item in modeList"
-          :key="item.KEY"
-          class="iconfont"
-          :class="[item.icon, {active: item.KEY === currentMode}]"
-          @click="toggleMode(item.KEY)"
+            v-for="item in modeList"
+            :key="item.KEY"
+            class="iconfont"
+            :class="[item.icon, { active: item.KEY === currentMode }]"
+            @click="toggleMode(item.KEY)"
           >
-            {{item.name}}
+            {{ item.name }}
           </li>
         </ul>
       </transition>
@@ -44,6 +44,8 @@ import storage from 'good-storage' // 本地存储
 const MOBILE_DESKTOP_BREAKPOINT = 719 // refer to config.styl
 
 export default {
+  name: 'Buttons',
+
   data() {
     return {
       threshold: 100,
@@ -82,6 +84,18 @@ export default {
       COMMENT_SELECTOR_3: '.vssue' // 评论区元素的选择器3
     }
   },
+
+  watch: {
+    '$route.path'() {
+      this.showCommentBut = false
+      this.getCommentTop()
+    }
+  },
+
+  created() {
+    this.modeObserver()
+  },
+
   mounted () {
     this.currentMode = storage.get('mode') || 'auto'
 
@@ -107,7 +121,7 @@ export default {
       }, 100))
     }
 
-    
+
     // 移动端对类似:hover效果的处理
     const buttons = document.querySelectorAll('.buttons .button')
     for (let i = 0; i < buttons.length; i++) {
@@ -121,18 +135,46 @@ export default {
         }, 150)
       })
     }
-    
+
   },
+
   computed: {
     showToTop () {
       return this.scrollTop > this.threshold
     }
   },
+
   methods: {
+    /**
+     * 观察body的class名，来判断是夜间模式还是别的
+     */
+    modeObserver() {
+      // 选择需要观察变动的节点
+      const targetNode = document.getElementsByTagName('body')[0]
+
+      // 观察器的配置（需要观察什么变动）
+      const config = { attributes: true, childList: false, subtree: false }
+
+      // 当观察到变动时执行的回调函数
+      const callback = (mutationsList, observer) => {
+        this.currentMode = String(mutationsList[0].target.classList[0]).slice(11)
+      }
+
+      // 创建一个观察器实例并传入回调函数
+      const observer = new MutationObserver(callback)
+
+      // 以上述配置开始观察目标节点
+      observer.observe(targetNode, config)
+
+      // 组件销毁之后，可停止观察
+      this.$once('hook:beforeDestroy', () => observer.disconnect())
+    },
+
     toggleMode(key){
       this.currentMode = key
       this.$emit('toggle-theme-mode', key)
     },
+
     getScrollTop () {
       return window.pageYOffset
         || document.documentElement.scrollTop
@@ -153,7 +195,6 @@ export default {
         }
       },500)
     },
-
 
     scrollToComment() {
       window.scrollTo({ top: this.commentTop, behavior: 'smooth' })
@@ -182,79 +223,73 @@ export default {
       }, 500)
     }
   },
-  watch: {
-    '$route.path'() {
-      this.showCommentBut = false
-      this.getCommentTop()
-    }
-  }
 }
 </script>
 
-<style lang='stylus'>
-  .yellowBorder
-    // border: #FFE089 1px solid!important
-    border-radius 5px
-    box-shadow 0 0 15px #FFE089!important
-  .buttons
-    position fixed
-    right 2rem
-    bottom 2.5rem
-    z-index 11
-    @media (max-width: $MQNarrow)
-      right 1rem
-      bottom 1.5rem
-    .button
-      width 2.2rem
-      height 2.2rem
-      line-height 2.2rem
-      border-radius 50%
-      box-shadow 0 2px 6px rgba(0,0,0,.15)
-      margin-top .9rem
-      text-align center
-      cursor pointer
-      transition all .5s
-      background var(--blurBg)
-      &.hover
+<style lang="stylus">
+.yellowBorder
+  // border: #FFE089 1px solid!important
+  border-radius 5px
+  box-shadow 0 0 15px #FFE089!important
+.buttons
+  position fixed
+  right 2rem
+  bottom 2.5rem
+  z-index 11
+  @media (max-width: $MQNarrow)
+    right 1rem
+    bottom 1.5rem
+  .button
+    width 2.2rem
+    height 2.2rem
+    line-height 2.2rem
+    border-radius 50%
+    box-shadow 0 2px 6px rgba(0,0,0,.15)
+    margin-top .9rem
+    text-align center
+    cursor pointer
+    transition all .5s
+    background var(--blurBg)
+    &.hover
+      background $accentColor
+      box-shadow 0 0 15px $accentColor
+      &:before
+        color #fff
+    @media (any-hover: hover)
+      &:hover
         background $accentColor
         box-shadow 0 0 15px $accentColor
         &:before
           color #fff
-      @media (any-hover: hover)
+    .select-box
+      margin 0
+      padding .8rem 0
+      position absolute
+      bottom 0rem
+      right 1.5rem
+      background var(--mainBg)
+      border 1px solid var(--borderColor)
+      width 120px
+      border-radius 6px
+      box-shadow 0 0 15px rgba(255,255,255,.2)
+      li
+        list-style none
+        line-height 2rem
+        font-size .95rem
         &:hover
-          background $accentColor
-          box-shadow 0 0 15px $accentColor
-          &:before
-            color #fff
-      .select-box
-        margin 0
-        padding .8rem 0
-        position absolute
-        bottom 0rem
-        right 1.5rem
-        background var(--mainBg)
-        border 1px solid var(--borderColor)
-        width 120px
-        border-radius 6px
-        box-shadow 0 0 15px rgba(255,255,255,.2)
-        li 
-          list-style none
-          line-height 2rem
-          font-size .95rem
-          &:hover
-            color $accentColor
-          &.active
-            background-color rgba(150,150,150,.2)
-            color $accentColor
+          color $accentColor
+        &.active
+          background-color rgba(150,150,150,.2)
+          color $accentColor
 
-  .mode-enter-active, .mode-leave-active
-    transition all .3s
-  .mode-enter, .mode-leave-to
-    opacity 0
-    transform scale(.8)
+.mode-enter-active, .mode-leave-active
+  transition all .3s
+.mode-enter, .mode-leave-to
+  opacity 0
+  transform scale(.8)
 
-  .fade-enter-active, .fade-leave-active
-    transition opacity .2s
-  .fade-enter, .fade-leave-to
-    opacity 0
+.fade-enter-active, .fade-leave-active
+  transition opacity .2s
+.fade-enter, .fade-leave-to
+  opacity 0
 </style>

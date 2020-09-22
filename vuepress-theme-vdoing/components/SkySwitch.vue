@@ -3,26 +3,61 @@ import storage from 'good-storage' // 本地存储
 
 export default {
   name: 'SkySwitch',
+
   data() {
     return {
       modeSwitch: false,
     }
   },
+
+  watch: {
+    modeSwitch: {
+      handler(newValue) {
+        this.$refs['toggle'].checked = newValue
+      },
+    },
+  },
+
+  created() {
+    this.modeSwitch = storage.get('mode') === 'dark' ? true : false
+    this.modeObserver()
+  },
+
   methods: {
-    onMyInfoShow() {
+    switch() {
       let timer = setTimeout(() => {
         this.modeSwitch = !this.modeSwitch
         this.$emit('toggle-theme-mode', this.modeSwitch ? 'dark' : 'light')
         clearTimeout(timer)
       }, 200)
     },
+
+    /**
+     * 观察body的class名，来判断是夜间模式还是别的
+     */
+    modeObserver() {
+      // 选择需要观察变动的节点
+      const targetNode = document.getElementsByTagName('body')[0]
+
+      // 观察器的配置（需要观察什么变动）
+      const config = { attributes: true, childList: false, subtree: false }
+
+      // 当观察到变动时执行的回调函数
+      const callback = (mutationsList, observer) => {
+        this.modeSwitch = 'theme-mode-dark' === mutationsList[0].target.classList[0] ? true : false
+      }
+
+      // 创建一个观察器实例并传入回调函数
+      const observer = new MutationObserver(callback)
+
+      // 以上述配置开始观察目标节点
+      observer.observe(targetNode, config)
+
+      // 组件销毁之后，可停止观察
+      this.$once('hook:beforeDestroy', () => observer.disconnect())
+    },
   },
-  created() {
-    this.modeSwitch = storage.get('mode') === 'dark' ? true : false
-  },
-  mounted() {
-    this.$refs['toggle'].checked = this.modeSwitch
-  },
+
   render() {
     return (
       <div class="sky-switch">
@@ -32,7 +67,7 @@ export default {
             id="toggle"
             type="checkbox"
             onClick={() => {
-              this.onMyInfoShow()
+              this.switch()
             }}
           />
           <div></div>
@@ -63,7 +98,7 @@ export default {
   // 开关 长按时候宽度
   $toggle-wider: 2.01rem;
   // 浅灰色
-  $color-grey: #e9e9e9;
+  $color-grey: #888282;
   // 开关 开的时候背景颜色
   $color-green: #11a8cd;
   @media (prefers-color-scheme: dark) {
