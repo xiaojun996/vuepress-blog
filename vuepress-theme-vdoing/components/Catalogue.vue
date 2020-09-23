@@ -35,12 +35,18 @@
 
 <script>
 import encodeMixin from '../mixins/encodeUrl'
+
 export default {
   mixins: [encodeMixin],
   data() {
     return {
       pageData: null,
       isStructuring: true
+    }
+  },
+  watch: {
+    '$route.path'() {
+      this.getPageData()
     }
   },
   created() {
@@ -79,11 +85,6 @@ export default {
       return Object.prototype.toString.call(o).match(/\[object (.*?)\]/)[1].toLowerCase()
     }
   },
-  watch: {
-    '$route.path'() {
-      this.getPageData()
-    }
-  }
 }
 </script>
 

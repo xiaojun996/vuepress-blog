@@ -45,7 +45,6 @@ const MOBILE_DESKTOP_BREAKPOINT = 719 // refer to config.styl
 
 export default {
   name: 'Buttons',
-
   data() {
     return {
       threshold: 100,
@@ -84,14 +83,12 @@ export default {
       COMMENT_SELECTOR_3: '.vssue' // 评论区元素的选择器3
     }
   },
-
   watch: {
     '$route.path'() {
       this.showCommentBut = false
       this.getCommentTop()
     }
   },
-
   mounted () {
     this.modeObserver()
 
@@ -134,13 +131,11 @@ export default {
       })
     }
   },
-
   computed: {
     showToTop () {
       return this.scrollTop > this.threshold
     }
   },
-
   methods: {
     /**
      * 观察body的class名，来判断是夜间模式还是别的
@@ -166,23 +161,19 @@ export default {
       // 组件销毁之后，可停止观察
       this.$once('hook:beforeDestroy', () => observer.disconnect())
     },
-
     toggleMode(key){
       this.currentMode = key
       this.$emit('toggle-theme-mode', key)
     },
-
     getScrollTop () {
       return window.pageYOffset
         || document.documentElement.scrollTop
         || document.body.scrollTop || 0
     },
-
     scrollToTop () {
       window.scrollTo({ top: 0, behavior: 'smooth' })
       this.scrollTop = 0
     },
-
     getCommentTop () {
       setTimeout(() => {
         let commentEl = document.querySelector(this.COMMENT_SELECTOR_1) || document.querySelector(this.COMMENT_SELECTOR_2) || document.querySelector(this.COMMENT_SELECTOR_3)
@@ -192,7 +183,6 @@ export default {
         }
       },500)
     },
-
     scrollToComment() {
       window.scrollTo({ top: this.commentTop, behavior: 'smooth' })
       this._textareaEl = document.querySelector(this.COMMENT_SELECTOR_1 + ' textarea') || document.querySelector(this.COMMENT_SELECTOR_2 + ' input') || document.querySelector(this.COMMENT_SELECTOR_3 + ' textarea')
@@ -202,7 +192,6 @@ export default {
         this._handleFocus()
       }
     },
-
     _handleListener() {
       clearTimeout(this._scrollTimer)
       this._scrollTimer = setTimeout(() => {
@@ -211,7 +200,6 @@ export default {
         this._handleFocus()
       }, 30)
     },
-
     _handleFocus() {
       this._textareaEl.focus()
       this._textareaEl.classList.add('yellowBorder')

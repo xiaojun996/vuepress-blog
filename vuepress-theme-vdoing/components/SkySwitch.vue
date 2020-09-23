@@ -3,13 +3,11 @@ import storage from 'good-storage' // 本地存储
 
 export default {
   name: 'SkySwitch',
-
   data() {
     return {
       modeSwitch: false,
     }
   },
-
   watch: {
     modeSwitch: {
       handler(newValue) {
@@ -17,24 +15,17 @@ export default {
       },
     },
   },
-
   created() {
     this.modeSwitch = storage.get('mode') === 'dark' ? true : false
   },
-
   mounted() {
     this.modeObserver()
   },
-
   methods: {
     switch() {
-      let timer = setTimeout(() => {
-        this.modeSwitch = !this.modeSwitch
-        this.$emit('toggle-theme-mode', this.modeSwitch ? 'dark' : 'light')
-        clearTimeout(timer)
-      }, 200)
+      this.modeSwitch = !this.modeSwitch
+      this.$emit('toggle-theme-mode', this.modeSwitch ? 'dark' : 'light')
     },
-
     /**
      * 观察body的class名，来判断是夜间模式还是别的
      */
@@ -60,7 +51,6 @@ export default {
       this.$once('hook:beforeDestroy', () => observer.disconnect())
     },
   },
-
   render() {
     return (
       <div class="sky-switch">
