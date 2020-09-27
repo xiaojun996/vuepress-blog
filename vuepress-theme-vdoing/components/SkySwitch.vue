@@ -30,6 +30,10 @@ export default {
      * 观察body的class名，来判断是夜间模式还是别的
      */
     modeObserver() {
+      window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', e => {
+        const newColorScheme = e.matches ? 'dark' : 'light'
+        this.$emit('toggle-theme-mode', newColorScheme)
+      })
       // 选择需要观察变动的节点
       const targetNode = document.getElementsByTagName('body')[0]
 
