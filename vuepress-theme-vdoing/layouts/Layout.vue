@@ -132,12 +132,7 @@ export default {
 
     this.isSidebarOpenOfclientWidth()
     const mode = storage.get('mode') // 不放在created是因为vuepress不能在created访问浏览器api，如window
-    if (!mode || mode === 'auto') {
-      // 当未切换过模式，或模式处于'跟随系统'时
-      this._autoMode()
-    } else {
-      this.themeMode = mode
-    }
+    this.themeMode = mode
     this.setBodyClass()
   },
   mounted() {
@@ -194,23 +189,10 @@ export default {
       this.isSidebarOpen = typeof to === 'boolean' ? to : !this.isSidebarOpen
       this.$emit('toggle-sidebar', this.isSidebarOpen)
     },
-    _autoMode() {
-      if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-        // 系统处于深色模式
-        this.themeMode = 'dark'
-      } else {
-        this.themeMode = 'light'
-      }
-    },
     toggleThemeMode(key) {
-      if (key === 'auto') {
-        this._autoMode()
-      } else {
-        this.themeMode = key
-      }
+      this.themeMode = key
       storage.set('mode', key)
     },
-
     // side swipe
     onTouchStart(e) {
       this.touchStart = {
@@ -218,7 +200,6 @@ export default {
         y: e.changedTouches[0].clientY,
       }
     },
-
     onTouchEnd(e) {
       const dx = e.changedTouches[0].clientX - this.touchStart.x
       const dy = e.changedTouches[0].clientY - this.touchStart.y
