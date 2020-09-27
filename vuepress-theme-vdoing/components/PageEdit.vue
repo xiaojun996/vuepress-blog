@@ -1,38 +1,27 @@
 <template>
   <div class="page-edit">
-    <div
-      class="edit-link"
-      v-if="editLink"
-    >
-      <a
-        :href="editLink"
-        target="_blank"
-        rel="noopener noreferrer"
-      >{{ editLinkText }}</a>
+    <div class="edit-link" v-if="editLink">
+      <a :href="editLink" target="_blank" rel="noopener noreferrer">{{ editLinkText }}</a>
       <OutboundLink />
     </div>
 
-    <div
-      class="tags"
-      v-if="$themeConfig.tag !== false && tags && tags[0]"
-    >
+    <div class="tags" v-if="$themeConfig.tag !== false && tags && tags[0]">
       <router-link
         :to="`/tags/?tag=${encodeURIComponent(item)}`"
         v-for="(item, index) in tags"
         :key="index"
         title="标签"
-      >#{{item}}</router-link>
+        >#{{ item }}</router-link
+      >
     </div>
 
-    <div
-      class="last-updated"
-      v-if="lastUpdated"
-    >
+    <div class="last-updated" v-if="lastUpdated">
       <span class="prefix">{{ lastUpdatedText }}:</span>
       <span class="time">{{ lastUpdated }}</span>
     </div>
   </div>
 </template>
+
 <script>
 import isNil from 'lodash/isNil'
 import { endingSlashRE, outboundRE } from '../util'
@@ -40,15 +29,15 @@ import { endingSlashRE, outboundRE } from '../util'
 export default {
   name: 'PageEdit',
   computed: {
-    tags () {
+    tags() {
       return this.$frontmatter.tags
     },
 
-    lastUpdated () {
+    lastUpdated() {
       return this.$page.lastUpdated
     },
 
-    lastUpdatedText () {
+    lastUpdatedText() {
       if (typeof this.$themeLocaleConfig.lastUpdated === 'string') {
         return this.$themeLocaleConfig.lastUpdated
       }
@@ -58,68 +47,51 @@ export default {
       return 'Last Updated'
     },
 
-    editLink () {
+    editLink() {
       const showEditLink = isNil(this.$page.frontmatter.editLink)
         ? this.$site.themeConfig.editLinks
         : this.$page.frontmatter.editLink
 
-      const {
-        repo,
-        docsDir = '',
-        docsBranch = 'master',
-        docsRepo = repo
-      } = this.$site.themeConfig
+      const { repo, docsDir = '', docsBranch = 'master', docsRepo = repo } = this.$site.themeConfig
 
       if (showEditLink && docsRepo && this.$page.relativePath) {
-        return this.createEditLink(
-          repo,
-          docsRepo,
-          docsDir,
-          docsBranch,
-          this.$page.relativePath
-        )
+        return this.createEditLink(repo, docsRepo, docsDir, docsBranch, this.$page.relativePath)
       }
       return null
     },
 
-    editLinkText () {
-      return (
-        this.$themeLocaleConfig.editLinkText
-        || this.$site.themeConfig.editLinkText
-        || `Edit this page`
-      )
-    }
+    editLinkText() {
+      return this.$themeLocaleConfig.editLinkText || this.$site.themeConfig.editLinkText || `Edit this page`
+    },
   },
-
   methods: {
-    createEditLink (repo, docsRepo, docsDir, docsBranch, path) {
+    createEditLink(repo, docsRepo, docsDir, docsBranch, path) {
       const bitbucket = /bitbucket.org/
       if (bitbucket.test(repo)) {
         const base = outboundRE.test(docsRepo) ? docsRepo : repo
         return (
-          base.replace(endingSlashRE, '')
-          + `/src`
-          + `/${docsBranch}/`
-          + (docsDir ? docsDir.replace(endingSlashRE, '') + '/' : '')
-          + path
-          + `?mode=edit&spa=0&at=${docsBranch}&fileviewer=file-view-default`
+          base.replace(endingSlashRE, '') +
+          `/src` +
+          `/${docsBranch}/` +
+          (docsDir ? docsDir.replace(endingSlashRE, '') + '/' : '') +
+          path +
+          `?mode=edit&spa=0&at=${docsBranch}&fileviewer=file-view-default`
         )
       }
 
-      const base = outboundRE.test(docsRepo)
-        ? docsRepo
-        : `https://github.com/${docsRepo}`
+      const base = outboundRE.test(docsRepo) ? docsRepo : `https://github.com/${docsRepo}`
       return (
-        base.replace(endingSlashRE, '')
-        + `/edit`
-        + `/${docsBranch}/`
-        + (docsDir ? docsDir.replace(endingSlashRE, '') + '/' : '')
-        + path
+        base.replace(endingSlashRE, '') +
+        `/edit` +
+        `/${docsBranch}/` +
+        (docsDir ? docsDir.replace(endingSlashRE, '') + '/' : '') +
+        path
       )
-    }
-  }
+    },
+  },
 }
 </script>
+
 <style lang="stylus">
 @require '../styles/wrapper.styl'
 

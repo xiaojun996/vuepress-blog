@@ -2,16 +2,8 @@
   <div class="custom-page tags-page">
     <MainLayout>
       <template #mainLeft>
-        <TagsBar
-          v-if="$categoriesAndTags.tags.length"
-          :tagsData="$categoriesAndTags.tags"
-          :tag="tag"
-        />
-        <PostList
-          :currentPage="currentPage"
-          :perPage="perPage"
-          :tag="tag"
-        />
+        <TagsBar v-if="$categoriesAndTags.tags.length" :tagsData="$categoriesAndTags.tags" :tag="tag" />
+        <PostList :currentPage="currentPage" :perPage="perPage" :tag="tag" />
         <Pagination
           :total="total"
           :perPage="perPage"
@@ -21,11 +13,7 @@
         />
       </template>
       <template #mainRight>
-        <TagsBar
-          v-if="$categoriesAndTags.tags.length"
-          :tagsData="$categoriesAndTags.tags"
-          :tag="tag"
-        />
+        <TagsBar v-if="$categoriesAndTags.tags.length" :tagsData="$categoriesAndTags.tags" :tag="tag" />
       </template>
     </MainLayout>
   </div>
@@ -38,16 +26,16 @@ import Pagination from '@theme/components/Pagination'
 import TagsBar from '@theme/components/TagsBar'
 
 export default {
-  data () {
+  data() {
     return {
       tag: '',
       total: 0, // 总长
       perPage: 10, // 每页长
-      currentPage: 1// 当前页
+      currentPage: 1, // 当前页
     }
   },
   components: { MainLayout, PostList, Pagination, TagsBar },
-  mounted () {
+  mounted() {
     const queryTag = this.$route.query.tag
 
     if (queryTag) {
@@ -61,12 +49,13 @@ export default {
     }
   },
   methods: {
-    handlePagination (i) { // 分页
+    handlePagination(i) {
+      // 分页
       this.currentPage = i
-    }
+    },
   },
   watch: {
-    '$route.query.tag' () {
+    '$route.query.tag'() {
       this.tag = decodeURIComponent(this.$route.query.tag)
       if (this.tag) {
         this.total = this.$groupPosts.tags[this.tag].length
@@ -74,13 +63,12 @@ export default {
         this.total = this.$sortPosts.length
       }
       this.currentPage = 1
-
-    }
-  }
+    },
+  },
 }
 </script>
 
-<style lang='stylus'>
+<style lang="stylus">
 .tags-page
   .tags-wrapper
     position sticky

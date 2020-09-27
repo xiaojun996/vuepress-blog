@@ -1,17 +1,11 @@
 <template>
   <aside class="sidebar">
-    <div
-      class="blogger"
-      v-if="blogger"
-    >
+    <div class="blogger" v-if="blogger">
       <img :src="blogger.avatar" />
       <div class="blogger-info">
-        <h3>{{blogger.name}}</h3>
+        <h3>{{ blogger.name }}</h3>
 
-        <div
-          class="icons"
-          v-if="blogger.social"
-        >
+        <div class="icons" v-if="blogger.social">
           <a
             :href="item.link"
             :title="item.title"
@@ -19,17 +13,15 @@
             v-for="(item, index) in blogger.social.icons"
             :key="index"
             target="_blank"
-          ></a>
+          />
         </div>
-        <span v-else>{{blogger.slogan}}</span>
+        <span v-else>{{ blogger.slogan }}</span>
       </div>
     </div>
+
     <NavLinks />
     <slot name="top" />
-    <SidebarLinks
-      :depth="0"
-      :items="items"
-    />
+    <SidebarLinks :depth="0" :items="items" />
     <slot name="bottom" />
   </aside>
 </template>
@@ -40,16 +32,13 @@ import NavLinks from '@theme/components/NavLinks.vue'
 
 export default {
   name: 'Sidebar',
-
-  components: { SidebarLinks, NavLinks },
-
   props: ['items'],
-
+  components: { SidebarLinks, NavLinks },
   computed: {
-    blogger () {
+    blogger() {
       return this.$themeConfig.blogger
-    }
-  }
+    },
+  },
 }
 </script>
 

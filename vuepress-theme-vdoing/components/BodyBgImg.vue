@@ -1,21 +1,18 @@
 <template>
-  <div
-    class="body-bg"
-    :style="`background: url(${bgImg}) center center / cover no-repeat;opacity:${opacity}`"
-  />
+  <div class="body-bg" :style="`background: url(${bgImg}) center center / cover no-repeat;opacity:${opacity}`" />
 </template>
 
 <script>
 import { type } from '../util'
 
 export default {
-  data () {
+  data() {
     return {
       bgImg: '',
-      opacity: 0.5
+      opacity: 0.5,
     }
   },
-  mounted () {
+  mounted() {
     let { bodyBgImg, bodyBgImgOpacity } = this.$themeConfig
 
     if (type(bodyBgImg) === 'string') {
@@ -31,18 +28,17 @@ export default {
           count = 0
         }
         this.bgImg = bodyBgImg[count]
-      }, 15000);
+      }, 15000)
     }
 
     if (bodyBgImgOpacity !== undefined) {
       this.opacity = bodyBgImgOpacity
     }
-
-  }
+  },
 }
 </script>
 
-<style lang='stylus'>
+<style lang="stylus">
 .body-bg
   position fixed
   left 0

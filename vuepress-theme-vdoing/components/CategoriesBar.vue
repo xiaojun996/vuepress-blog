@@ -1,26 +1,22 @@
 <template>
   <div class="categories-wrapper card-box">
-    <router-link
-      to="/categories/"
-      class="title iconfont icon-wenjianjia"
-      title="全部分类"
-    >{{ length === 'all' ? '全部分类' : '文章分类' }}</router-link>
+    <router-link to="/categories/" class="title iconfont icon-wenjianjia" title="全部分类">
+      {{ length === 'all' ? '全部分类' : '文章分类' }}
+    </router-link>
 
     <div class="categories">
       <router-link
         :to="`/categories/?category=${encodeURIComponent(item.key)}`"
         v-for="(item, index) in categories"
         :key="index"
-        :class="{active: item.key === category}"
+        :class="{ active: item.key === category }"
       >
-        {{item.key}}
-        <span>{{item.length}}</span>
+        {{ item.key }}
+        <span>{{ item.length }}</span>
       </router-link>
-      <router-link
-        to="/categories/"
-        v-if="length !== 'all' && length < categoriesData.length"
-        class="more"
-      >更多...</router-link>
+      <router-link to="/categories/" v-if="length !== 'all' && length < categoriesData.length" class="more">
+        更多...
+      </router-link>
     </div>
   </div>
 </template>
@@ -30,30 +26,30 @@ export default {
   props: {
     category: {
       type: String,
-      default: ''
+      default: '',
     },
     categoriesData: {
       type: Array,
-      default: []
+      default: [],
     },
     length: {
       type: [String, Number],
-      default: 'all'
-    }
+      default: 'all',
+    },
   },
   computed: {
-    categories () {
+    categories() {
       if (this.length === 'all') {
         return this.categoriesData
       } else {
         return this.categoriesData.slice(0, this.length)
       }
-    }
-  }
+    },
+  },
 }
 </script>
 
-<style lang='stylus'>
+<style lang="stylus">
 .categories-wrapper
   .title
     color var(--textColor)

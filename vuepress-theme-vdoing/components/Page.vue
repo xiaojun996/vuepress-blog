@@ -5,20 +5,13 @@
 
       <div :class="`theme-vdoing-wrapper ${bgStyle}`">
         <ArticleInfo v-if="isArticle()" />
-        <component
-          class="theme-vdoing-content"
-          v-if="pageComponent"
-          :is="pageComponent"
-        />
+        <component class="theme-vdoing-content" v-if="pageComponent" :is="pageComponent" />
 
         <div class="content-wrapper">
           <RightMenu v-if="showRightMenu" />
           <h1 v-if="showTitle">
-            <img
-              :src="currentBadge"
-              v-if="$themeConfig.titleBadge === false ? false : true"
-            />
-            {{this.$page.title}}
+            <img :src="currentBadge" v-if="$themeConfig.titleBadge === false ? false : true" />
+            {{ this.$page.title }}
           </h1>
           <Content class="theme-vdoing-content" />
         </div>
@@ -27,11 +20,7 @@
         <PageNav v-bind="{ sidebarItems }" />
       </div>
 
-      <UpdateArticle
-        :length="3"
-        :moreArticle="updateBarConfig && updateBarConfig.moreArticle"
-        v-if="isShowUpdateBar"
-      />
+      <UpdateArticle :length="3" :moreArticle="updateBarConfig && updateBarConfig.moreArticle" v-if="isShowUpdateBar" />
 
       <slot name="bottom" />
     </main>
@@ -49,40 +38,43 @@ import RightMenu from './RightMenu.vue'
 import TitleBadgeMixin from '../mixins/titleBadge'
 
 export default {
-  mixins: [TitleBadgeMixin],
-  data () {
-    return {
-      updateBarConfig: null
-    }
-  },
   props: ['sidebarItems'],
   components: { PageEdit, PageNav, ArticleInfo, Catalogue, UpdateArticle, RightMenu },
-  created () {
-    this.updateBarConfig = this.$themeConfig.updateBar
+  mixins: [TitleBadgeMixin],
+  data() {
+    return {
+      updateBarConfig: null,
+    }
   },
   computed: {
-    bgStyle () {
+    bgStyle() {
       const { contentBgStyle } = this.$themeConfig
       return contentBgStyle ? 'bg-style-' + contentBgStyle : ''
     },
-    isShowUpdateBar () {
+    isShowUpdateBar() {
       return this.updateBarConfig && this.updateBarConfig.showToArticle === false ? false : true
     },
-    showTitle () {
+    showTitle() {
       return !this.$frontmatter.pageComponent
     },
-    showRightMenu () {
-      return this.$page.headers && (this.$frontmatter && this.$frontmatter.sidebar && this.$frontmatter.sidebar !== false) !== false
+    showRightMenu() {
+      return (
+        this.$page.headers &&
+        (this.$frontmatter && this.$frontmatter.sidebar && this.$frontmatter.sidebar !== false) !== false
+      )
     },
-    pageComponent () {
+    pageComponent() {
       return this.$frontmatter.pageComponent ? this.$frontmatter.pageComponent.name : false
-    }
+    },
+  },
+  created() {
+    this.updateBarConfig = this.$themeConfig.updateBar
   },
   methods: {
-    isArticle () {
+    isArticle() {
       return this.$frontmatter.article !== false
-    }
-  }
+    },
+  },
 }
 </script>
 

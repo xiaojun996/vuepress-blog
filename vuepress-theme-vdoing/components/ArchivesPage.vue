@@ -2,25 +2,18 @@
   <div class="custom-page archives-page">
     <div class="theme-vdoing-wrapper">
       <h1>
-        <img
-          :src="currentBadge"
-          v-if="$themeConfig.titleBadge === false ? false : true"
-        />
-        {{this.$page.title}}
+        <img :src="currentBadge" v-if="$themeConfig.titleBadge === false ? false : true" />
+        {{ this.$page.title }}
       </h1>
       <ul>
         <template v-for="(item, index) in postsList">
-          <li
-            class="year"
-            v-if="(year = getYear(index)) !== getYear(index-1)"
-            :key="index+$sortPostsByDate.length"
-          >
-            <h2>{{year}}</h2>
+          <li class="year" v-if="(year = getYear(index)) !== getYear(index - 1)" :key="index + $sortPostsByDate.length">
+            <h2>{{ year }}</h2>
           </li>
           <li :key="index">
             <router-link :to="item.path">
               <span>{{ getDate(item) }}</span>
-              {{item.title}}
+              {{ item.title }}
             </router-link>
           </li>
         </template>
@@ -36,65 +29,72 @@ import TitleBadgeMixin from '../mixins/titleBadge'
 
 export default {
   mixins: [TitleBadgeMixin],
-  data () {
+  data() {
     return {
       postsList: [],
 
       perPage: 80, // 每页长
-      currentPage: 1// 当前页
+      currentPage: 1, // 当前页
     }
   },
-  created () {
+  created() {
     this.getPageData()
   },
-  mounted () {
+  mounted() {
+    window.addEventListener(
+      'scroll',
+      debounce(() => {
+        if (this.postsList.length < this.$sortPostsByDate.length) {
+          const docEl = document.documentElement
+          const docBody = document.body
+          const scrollTop = docEl.scrollTop || docBody.scrollTop
+          const clientHeight = docEl.clientHeight || docBody.clientHeight
+          const scrollHeight = docEl.scrollHeight || docBody.scrollHeight
 
-    window.addEventListener('scroll', debounce(() => {
-      if (this.postsList.length < this.$sortPostsByDate.length) {
-        const docEl = document.documentElement
-        const docBody = document.body
-        const scrollTop = docEl.scrollTop || docBody.scrollTop;
-        const clientHeight = docEl.clientHeight || docBody.clientHeight;
-        const scrollHeight = docEl.scrollHeight || docBody.scrollHeight;
-
-        if (scrollHeight > clientHeight && scrollTop + clientHeight >= scrollHeight - 250) {
-          this.loadmore()
+          if (scrollHeight > clientHeight && scrollTop + clientHeight >= scrollHeight - 250) {
+            this.loadmore()
+          }
         }
-      }
-
-    }, 200))
+      }, 200)
+    )
   },
   methods: {
-    getPageData () {
+    getPageData() {
       const currentPage = this.currentPage
       const perPage = this.perPage
-      this.postsList = this.postsList.concat(this.$sortPostsByDate.slice((currentPage - 1) * perPage, currentPage * perPage))
+      this.postsList = this.postsList.concat(
+        this.$sortPostsByDate.slice((currentPage - 1) * perPage, currentPage * perPage)
+      )
     },
-    loadmore () {
+    loadmore() {
       this.currentPage = this.currentPage + 1
       this.getPageData()
     },
-    getYear (index) {
+    getYear(index) {
       const item = this.postsList[index]
       if (!item) {
         return
       }
-      const { frontmatter: { date } } = item
+      const {
+        frontmatter: { date },
+      } = item
       if (date && type(date) === 'string') {
-        return date.split(" ")[0].slice(0, 4)
+        return date.split(' ')[0].slice(0, 4)
       }
     },
-    getDate (item) {
-      const { frontmatter: { date } } = item
+    getDate(item) {
+      const {
+        frontmatter: { date },
+      } = item
       if (date && type(date) === 'string') {
-        return date.split(" ")[0].slice(5, 10)
+        return date.split(' ')[0].slice(5, 10)
       }
-    }
-  }
+    },
+  },
 }
 </script>
 
-<style lang='stylus'>
+<style lang="stylus">
 @require '../styles/wrapper.styl'
 
 .archives-page

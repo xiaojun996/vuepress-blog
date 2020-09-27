@@ -1,12 +1,6 @@
 <template>
-  <div
-    class="post-list"
-    ref="postList"
-  >
-    <transition-group
-      tag="div"
-      name="post"
-    >
+  <div class="post-list" ref="postList">
+    <transition-group tag="div" name="post">
       <div
         class="post card-box"
         :class="item.frontmatter.sticky && 'iconfont icon-zhiding'"
@@ -15,7 +9,7 @@
       >
         <div class="title-wrapper">
           <h2>
-            <router-link :to="item.path">{{item.title}}</router-link>
+            <router-link :to="item.path">{{ item.title }}</router-link>
           </h2>
           <div class="article-info">
             <a
@@ -24,18 +18,16 @@
               target="_blank"
               v-if="item.author && item.author.href"
               :href="item.author.href"
-            >{{ item.author.name ? item.author.name : item.author }}</a>
-            <span
-              title="作者"
-              class="iconfont icon-touxiang"
-              v-else-if="item.author"
-            >{{ item.author.name ? item.author.name : item.author }}</span>
+            >
+              {{ item.author.name ? item.author.name : item.author }}
+            </a>
+            <span title="作者" class="iconfont icon-touxiang" v-else-if="item.author">
+              {{ item.author.name ? item.author.name : item.author }}
+            </span>
 
-            <span
-              title="创建时间"
-              class="iconfont icon-riqi"
-              v-if="item.frontmatter.date"
-            >{{ item.frontmatter.date.split(' ')[0]}}</span>
+            <span title="创建时间" class="iconfont icon-riqi" v-if="item.frontmatter.date">
+              {{ item.frontmatter.date.split(' ')[0] }}
+            </span>
             <span
               title="分类"
               class="iconfont icon-wenjian"
@@ -45,7 +37,8 @@
                 :to="`/categories/?category=${encodeURIComponent(c)}`"
                 v-for="(c, index) in item.frontmatter.categories"
                 :key="index"
-              >{{c}}</router-link>
+                >{{ c }}</router-link
+              >
             </span>
             <span
               title="标签"
@@ -56,22 +49,16 @@
                 :to="`/tags/?tag=${encodeURIComponent(t)}`"
                 v-for="(t, index) in item.frontmatter.tags"
                 :key="index"
-              >{{t}}</router-link>
+              >
+                {{ t }}
+              </router-link>
             </span>
           </div>
         </div>
-        <div
-          class="excerpt-wrapper"
-          v-if="item.excerpt"
-        >
-          <div
-            class="excerpt"
-            v-html="item.excerpt"
-          ></div>
-          <router-link
-            :to="item.path"
-            class="readmore iconfont icon-jiantou-you"
-          >阅读全文</router-link>
+
+        <div class="excerpt-wrapper" v-if="item.excerpt">
+          <div class="excerpt" v-html="item.excerpt" />
+          <router-link :to="item.path" class="readmore iconfont icon-jiantou-you">阅读全文</router-link>
         </div>
       </div>
     </transition-group>
@@ -83,57 +70,52 @@ export default {
   props: {
     category: {
       type: String,
-      default: ''
+      default: '',
     },
     tag: {
       type: String,
-      default: ''
+      default: '',
     },
     currentPage: {
       type: Number,
-      default: 1
+      default: 1,
     },
     perPage: {
       type: Number,
-      default: 10
-    }
-  },
-  data () {
-    return {
-      sortPosts: [],
-      postListOffsetTop: 0
-    }
-  },
-  created () {
-    this.setPosts()
-  },
-  mounted () {
-    // this.postListOffsetTop = this.getElementToPageTop(this.$refs.postList) - 240
+      default: 10,
+    },
   },
   watch: {
-    currentPage () {
-      if (this.$route.query.p != this.currentPage) { // 此判断防止添加相同的路由信息（如浏览器回退时触发的）
+    currentPage() {
+      if (this.$route.query.p != this.currentPage) {
+        // 此判断防止添加相同的路由信息（如浏览器回退时触发的）
         this.$router.push({
           query: {
             ...this.$route.query,
-            p: this.currentPage
-          }
+            p: this.currentPage,
+          },
         })
       }
-      // setTimeout(() => {
-      //   window.scrollTo({ top: this.postListOffsetTop }) // behavior: 'smooth'
-      // },0)
       this.setPosts()
     },
-    category () {
+    category() {
       this.setPosts()
     },
-    tag () {
+    tag() {
       this.setPosts()
+    },
+  },
+  data() {
+    return {
+      sortPosts: [],
+      postListOffsetTop: 0,
     }
   },
+  created() {
+    this.setPosts()
+  },
   methods: {
-    setPosts () {
+    setPosts() {
       const currentPage = this.currentPage
       const perPage = this.perPage
 
@@ -148,17 +130,11 @@ export default {
 
       this.sortPosts = posts.slice((currentPage - 1) * perPage, currentPage * perPage)
     },
-    // getElementToPageTop(el) {
-    //   if(el && el.parentElement) {
-    //     return this.getElementToPageTop(el.parentElement) + el.offsetTop
-    //   }
-    //   return el.offsetTop
-    // }
-  }
+  },
 }
 </script>
 
-<style lang='stylus'>
+<style lang="stylus">
 .post-list
   margin-bottom 4rem
   .post

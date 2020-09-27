@@ -3,46 +3,29 @@
     <div class="column-wrapper">
       <img :src="$withBase(pageData.imgUrl)" />
       <dl class="column-info">
-        <dt class="title">{{pageData.title}}</dt>
-        <dd
-          class="description"
-          v-html="pageData.description"
-        ></dd>
+        <dt class="title">{{ pageData.title }}</dt>
+        <dd class="description" v-html="pageData.description"></dd>
       </dl>
     </div>
-    <div
-      class="catalogue-wrapper"
-      v-if="isStructuring"
-    >
+
+    <div class="catalogue-wrapper" v-if="isStructuring">
       <div class="catalogue-title">目录</div>
       <div class="catalogue-content">
         <template v-for="(item, index) in getCatalogueList()">
-          <dl
-            v-if="type(item) === 'array'"
-            :key="index"
-            class="inline"
-          >
+          <dl v-if="type(item) === 'array'" :key="index" class="inline">
             <dt>
-              <router-link :to="item[2]">{{`${index+1}. ${item[1]}`}}</router-link>
+              <router-link :to="item[2]">{{ `${index + 1}. ${item[1]}` }}</router-link>
             </dt>
           </dl>
-          <dl
-            v-else-if="type(item) === 'object'"
-            :key="index"
-          >
-            <dt :id="anchorText = item.title">
-              <a
-                :href="`#${anchorText}`"
-                class="header-anchor"
-              >#</a>
-              {{`${index+1}. ${item.title}`}}
+          <dl v-else-if="type(item) === 'object'" :key="index">
+            <dt :id="(anchorText = item.title)">
+              <a :href="`#${anchorText}`" class="header-anchor">#</a>
+              {{ `${index + 1}. ${item.title}` }}
             </dt>
             <dd>
-              <router-link
-                :to="s[2]"
-                v-for="(s, i) in item.children"
-                :key="i"
-              >{{`${index+1}-${i+1}. ${s[1]}`}}</router-link>
+              <router-link :to="s[2]" v-for="(s, i) in item.children" :key="i">
+                {{ `${index + 1}-${i + 1}. ${s[1]}` }}
+              </router-link>
             </dd>
           </dl>
         </template>
@@ -53,39 +36,41 @@
 
 <script>
 export default {
-  data () {
+  data() {
     return {
       pageData: null,
-      isStructuring: true
+      isStructuring: true,
     }
   },
   watch: {
-    '$route.path' () {
+    '$route.path'() {
       this.getPageData()
-    }
+    },
   },
-  created () {
+  created() {
     this.getPageData()
 
     const sidebar = this.$themeConfig.sidebar
     if (!sidebar || sidebar === 'auto') {
       this.isStructuring = false
-      console.error("目录页数据依赖于结构化的侧边栏数据，请在主题设置中将侧边栏字段设置为'structuring'，否则无法获取目录数据。")
+      console.error(
+        "目录页数据依赖于结构化的侧边栏数据，请在主题设置中将侧边栏字段设置为'structuring'，否则无法获取目录数据。"
+      )
     }
   },
   methods: {
-    getPageData () {
+    getPageData() {
       const pageComponent = this.$frontmatter.pageComponent
       if (pageComponent && pageComponent.data) {
         this.pageData = {
           ...pageComponent.data,
-          title: this.$frontmatter.title
+          title: this.$frontmatter.title,
         }
       } else {
         console.error('请在front matter中设置pageComponent和pageComponent.data数据')
       }
     },
-    getCatalogueList () {
+    getCatalogueList() {
       const { sidebar } = this.$site.themeConfig
       const key = this.$frontmatter.pageComponent.data.key
       const catalogueList = sidebar[`/${key}/`]
@@ -96,10 +81,14 @@ export default {
 
       return catalogueList
     },
-    type (o) { // 数据类型检查
-      return Object.prototype.toString.call(o).match(/\[object (.*?)\]/)[1].toLowerCase()
-    }
-  }
+    type(o) {
+      // 数据类型检查
+      return Object.prototype.toString
+        .call(o)
+        .match(/\[object (.*?)\]/)[1]
+        .toLowerCase()
+    },
+  },
 }
 </script>
 

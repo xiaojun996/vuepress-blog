@@ -1,32 +1,23 @@
 <template>
-  <div :class="['article-list',{'no-article-list': isShowArticle}]">
+  <div :class="['article-list', { 'no-article-list': isShowArticle }]">
     <div class="article-title">
-      <router-link
-        :to="moreArticle || '/archives/'"
-        class="iconfont icon-bi"
-      >最近更新</router-link>
+      <router-link :to="moreArticle || '/archives/'" class="iconfont icon-bi">最近更新</router-link>
     </div>
     <div class="article-wrapper">
-      <dl
-        v-for="(item, index) in topPublishPosts"
-        :key="index"
-      >
-        <dd>{{getNum(index)}}</dd>
+      <dl v-for="(item, index) in topPublishPosts" :key="index">
+        <dd>{{ getNum(index) }}</dd>
         <dt>
           <router-link :to="item.path">
-            <div>{{item.title}}</div>
+            <div>{{ item.title }}</div>
           </router-link>
-          <span>{{getDate(item)}}</span>
+          <span>{{ getDate(item) }}</span>
         </dt>
       </dl>
 
       <dl>
-        <dd></dd>
+        <dd />
         <dt>
-          <router-link
-            :to="moreArticle || '/archives/'"
-            class="more"
-          >更多文章></router-link>
+          <router-link :to="moreArticle || '/archives/'" class="more">更多文章></router-link>
         </dt>
       </dl>
     </div>
@@ -34,56 +25,58 @@
 </template>
 
 <script>
-
 export default {
   name: 'UpdateArticle',
   props: {
     length: {
       type: [String, Number],
-      default: 3
+      default: 3,
     },
-    moreArticle: String
+    moreArticle: String,
   },
-  data () {
+  data() {
     return {
       posts: [],
-      currentPath: ''
+      currentPath: '',
     }
   },
-  created () {
+  computed: {
+    topPublishPosts() {
+      return this.$sortPostsByDate
+        ? this.$sortPostsByDate
+            .filter(post => {
+              const { path } = post
+              return path !== this.currentPath
+            })
+            .slice(0, this.length)
+        : []
+    },
+    isShowArticle() {
+      const { frontmatter } = this.$page
+      return !(frontmatter.article !== false)
+    },
+  },
+  created() {
     this.posts = this.$site.pages
     this.currentPath = this.$page.path
   },
-  computed: {
-    topPublishPosts () {
-      return this.$sortPostsByDate ? this.$sortPostsByDate.filter(post => {
-        const { path } = post
-        return path !== this.currentPath
-      }).slice(0, this.length) : []
-
-    },
-    isShowArticle () {
-      const { frontmatter } = this.$page
-      return !(frontmatter.article !== false)
-    }
-  },
   methods: {
-    getNum (index) {
+    getNum(index) {
       return index < 9 ? '0' + (index + 1) : index + 1
     },
-    getDate (item) {
-      return item.frontmatter.date ? item.frontmatter.date.split(" ")[0].slice(5, 10) : ''
-    }
+    getDate(item) {
+      return item.frontmatter.date ? item.frontmatter.date.split(' ')[0].slice(5, 10) : ''
+    },
   },
   watch: {
-    $route () {
+    $route() {
       this.currentPath = this.$page.path
-    }
-  }
+    },
+  },
 }
 </script>
 
-<style lang='stylus'>
+<style lang="stylus">
 // @require '../styles/wrapper.styl'
 .article-list
   // @extend $wrapper

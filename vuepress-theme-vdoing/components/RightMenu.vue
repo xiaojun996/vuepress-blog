@@ -3,11 +3,11 @@
     <div class="right-menu-margin">
       <div class="right-menu-content">
         <div
-          :class="['right-menu-item', 'level'+item.level, { active: item.slug === hashText }]"
+          :class="['right-menu-item', 'level' + item.level, { active: item.slug === hashText }]"
           v-for="(item, i) in headers"
           :key="i"
         >
-          <a :href="'#'+item.slug">{{item.title}}</a>
+          <a :href="'#' + item.slug">{{ item.title }}</a>
         </div>
       </div>
     </div>
@@ -16,34 +16,34 @@
 
 <script>
 export default {
-  data () {
+  data() {
     return {
       headers: [],
-      hashText: ''
+      hashText: '',
     }
   },
-  mounted () {
+  watch: {
+    $route() {
+      this.headers = this.$page.headers
+      this.getHashText()
+    },
+  },
+  mounted() {
     this.getHeadersData()
     this.getHashText()
   },
-  watch: {
-    $route () {
-      this.headers = this.$page.headers
-      this.getHashText()
-    }
-  },
   methods: {
-    getHeadersData () {
+    getHeadersData() {
       this.headers = this.$page.headers
     },
-    getHashText () {
+    getHashText() {
       this.hashText = decodeURIComponent(window.location.hash.slice(1))
-    }
-  }
+    },
+  },
 }
 </script>
 
-<style lang='stylus'>
+<style lang="stylus">
 .right-menu-wrapper
   width $rightMenuWidth
   float right

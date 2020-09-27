@@ -1,10 +1,7 @@
 <template>
   <div class="page-nav-wapper">
     <!-- 页面中间左右翻页 -->
-    <div
-      class="page-nav-centre-wrap"
-      v-if="$themeConfig.pageButton !== false && (prev || next)"
-    >
+    <div class="page-nav-centre-wrap" v-if="$themeConfig.pageButton !== false && (prev || next)">
       <router-link
         class="page-nav-centre page-nav-centre-prev"
         v-if="prev"
@@ -27,36 +24,22 @@
     </div>
 
     <!-- 底部翻页按钮 -->
-    <div
-      class="page-nav"
-      v-if="prev || next"
-    >
+    <div class="page-nav" v-if="prev || next">
       <p class="inner">
-        <span
-          v-if="prev"
-          class="prev"
-        >
+        <span v-if="prev" class="prev">
           ←
-          <router-link
-            v-if="prev"
-            class="prev"
-            :to="prev.path"
-          >{{ prev.title || prev.path }}</router-link>
+          <router-link v-if="prev" class="prev" :to="prev.path">{{ prev.title || prev.path }}</router-link>
         </span>
 
-        <span
-          v-if="next"
-          class="next"
-        >
-          <router-link
-            v-if="next"
-            :to="next.path"
-          >{{ next.title || next.path }}</router-link>→
+        <span v-if="next" class="next">
+          <router-link v-if="next" :to="next.path"> {{ next.title || next.path }} </router-link>
+          →
         </span>
       </p>
     </div>
   </div>
 </template>
+
 <script>
 import { resolvePage } from '../util'
 import isString from 'lodash/isString'
@@ -66,17 +49,16 @@ export default {
   name: 'PageNav',
   props: ['sidebarItems'],
   computed: {
-    prev () {
+    prev() {
       return resolvePageLink(LINK_TYPES.PREV, this)
     },
 
-    next () {
+    next() {
       return resolvePageLink(LINK_TYPES.NEXT, this)
-    }
+    },
   },
   methods: {
-    showTooltip (e) {
-
+    showTooltip(e) {
       const clientW = document.body.clientWidth
       const X = e.clientX
       const tooltipEle = e.target.querySelector('.tooltip')
@@ -93,15 +75,15 @@ export default {
         tooltipEleStyle.right = clientW - X + 10 + 'px'
       }
       tooltipEleStyle.top = e.clientY + 10 + 'px'
-    }
-  }
+    },
+  },
 }
 
-function resolvePrev (page, items) {
+function resolvePrev(page, items) {
   return find(page, items, -1)
 }
 
-function resolveNext (page, items) {
+function resolveNext(page, items) {
   return find(page, items, 1)
 }
 
@@ -109,19 +91,16 @@ const LINK_TYPES = {
   NEXT: {
     resolveLink: resolveNext,
     getThemeLinkConfig: ({ nextLinks }) => nextLinks,
-    getPageLinkConfig: ({ frontmatter }) => frontmatter.next
+    getPageLinkConfig: ({ frontmatter }) => frontmatter.next,
   },
   PREV: {
     resolveLink: resolvePrev,
     getThemeLinkConfig: ({ prevLinks }) => prevLinks,
-    getPageLinkConfig: ({ frontmatter }) => frontmatter.prev
-  }
+    getPageLinkConfig: ({ frontmatter }) => frontmatter.prev,
+  },
 }
 
-function resolvePageLink (
-  linkType,
-  { $themeConfig, $page, $route, $site, sidebarItems }
-) {
+function resolvePageLink(linkType, { $themeConfig, $page, $route, $site, sidebarItems }) {
   const { resolveLink, getThemeLinkConfig, getPageLinkConfig } = linkType
 
   // Get link config from theme
@@ -142,7 +121,7 @@ function resolvePageLink (
   }
 }
 
-function find (page, items, offset) {
+function find(page, items, offset) {
   const res = []
   flatten(items, res)
   for (let i = 0; i < res.length; i++) {
@@ -153,7 +132,7 @@ function find (page, items, offset) {
   }
 }
 
-function flatten (items, res) {
+function flatten(items, res) {
   for (let i = 0, l = items.length; i < l; i++) {
     if (items[i].type === 'group') {
       flatten(items[i].children || [], res)
@@ -163,6 +142,7 @@ function flatten (items, res) {
   }
 }
 </script>
+
 <style lang="stylus">
 @require '../styles/wrapper.styl'
 
