@@ -1,6 +1,6 @@
 <template>
   <header class="navbar blur">
-    <SidebarButton @toggle-sidebar="$emit('toggle-sidebar')"/>
+    <SidebarButton @toggle-sidebar="$emit('toggle-sidebar')" />
 
     <router-link
       :to="$localePath"
@@ -11,7 +11,7 @@
         v-if="$site.themeConfig.logo"
         :src="$withBase($site.themeConfig.logo)"
         :alt="$siteTitle"
-      >
+      />
       <span
         ref="siteName"
         class="site-name"
@@ -31,8 +31,10 @@
         v-if="isAlgoliaSearch"
         :options="algolia"
       />
-      <SearchBox v-else-if="$site.themeConfig.search !== false && $page.frontmatter.search !== false"/>
-      <NavLinks class="can-hide"/>
+      <SearchBox
+        v-else-if="$site.themeConfig.search !== false && $page.frontmatter.search !== false"
+      />
+      <NavLinks class="can-hide" />
     </div>
   </header>
 </template>
@@ -44,15 +46,21 @@ import SidebarButton from '@theme/components/SidebarButton.vue'
 import NavLinks from '@theme/components/NavLinks.vue'
 import SkySwitch from '@theme/components/SkySwitch.vue'
 
-export default {
-  components: { SidebarButton, NavLinks, SearchBox, AlgoliaSearchBox,SkySwitch },
+function css (el, property) {
+  // NOTE: Known bug, will return 'auto' if style value is 'auto'
+  const win = el.ownerDocument.defaultView
+  // null means not to return pseudo styles
+  return win.getComputedStyle(el, null)[property]
+}
 
+export default {
+  name: 'NavBar',
+  components: { SidebarButton, NavLinks, SearchBox, AlgoliaSearchBox, SkySwitch },
   data () {
     return {
       linksWrapMaxWidth: null
     }
   },
-
   mounted () {
     const MOBILE_DESKTOP_BREAKPOINT = 719 // refer to config.styl
     const NAVBAR_VERTICAL_PADDING = parseInt(css(this.$el, 'paddingLeft')) + parseInt(css(this.$el, 'paddingRight'))
@@ -67,7 +75,6 @@ export default {
     handleLinksWrapWidth()
     window.addEventListener('resize', handleLinksWrapWidth, false)
   },
-
   computed: {
     algolia () {
       return this.$themeLocaleConfig.algolia || this.$site.themeConfig.algolia || {}
@@ -78,19 +85,11 @@ export default {
     }
   }
 }
-
-function css (el, property) {
-  // NOTE: Known bug, will return 'auto' if style value is 'auto'
-  const win = el.ownerDocument.defaultView
-  // null means not to return pseudo styles
-  return win.getComputedStyle(el, null)[property]
-}
 </script>
 
 <style lang="stylus">
 $navbar-vertical-padding = 0.7rem
 $navbar-horizontal-padding = 1.5rem
-
 .navbar
   padding $navbar-vertical-padding $navbar-horizontal-padding
   line-height $navbarHeight - 1.4rem
@@ -117,20 +116,17 @@ $navbar-horizontal-padding = 1.5rem
     top $navbar-vertical-padding
     display flex
     .search-box
-      flex: 0 0 auto
+      flex 0 0 auto
       vertical-align top
-
 .hide-navbar
-    .navbar
-      transform translateY(-100%)
-
+  .navbar
+    transform translateY(-100%)
 // 959
-@media (max-width: $MQNarrow)
+@media (max-width $MQNarrow)
   .navbar
     .site-name
       display none
-
-@media (max-width: $MQMobile)
+@media (max-width $MQMobile)
   .navbar
     padding-left 4rem
     .can-hide

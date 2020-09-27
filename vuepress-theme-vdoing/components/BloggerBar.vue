@@ -1,8 +1,9 @@
 <template>
   <aside class="blogger-wrapper card-box">
     <div class="avatar">
-      <img :src="blogger.avatar" alt="头像" title="我好看吗">
+      <img :src="blogger.avatar" alt="头像" title="我好看吗" />
     </div>
+
     <div class="icons" v-if="social">
       <a
         v-for="(item, index) in social.icons"
@@ -10,17 +11,14 @@
         :href="item.link"
         :title="item.title"
         :class="['iconfont', item.iconClass]"
-        :style="{width: 100/social.icons.length + '%'}"
+        :style="{ width: 100 / social.icons.length + '%' }"
         target="_blank"
       />
     </div>
+
     <div class="blogger">
-      <span class="name">
-        {{blogger.name}}
-      </span>
-      <span class="slogan">
-        {{blogger.slogan}}
-      </span>
+      <span class="name">{{ blogger.name }}</span>
+      <span class="slogan">{{ blogger.slogan }}</span>
     </div>
   </aside>
 </template>
@@ -33,12 +31,12 @@ export default {
     },
     social() {
       return this.$themeConfig.social
-    }
-  }
+    },
+  },
 }
 </script>
 
-<style lang='stylus'>
+<style lang="stylus">
 .blogger-wrapper
   height auto
   display inline-table
@@ -64,15 +62,14 @@ export default {
       display block
       float left
       text-align center
-      opacity .8
-
+      opacity 0.8
       &:hover
         color $accentColor
   .blogger
     margin 12px 0 2px 0
     .name
       font-size 1.4rem
-      display: block
+      display block
       margin-bottom 6px
     .slogan
       color var(--textColor)
