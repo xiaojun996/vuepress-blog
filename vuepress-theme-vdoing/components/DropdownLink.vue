@@ -3,7 +3,7 @@
     <button class="dropdown-title" type="button" :aria-label="dropdownAriaLabel" @click="toggle">
       <router-link v-if="item.link" :to="item.link" class="link-title">{{ item.text }}</router-link>
       <span class="title" v-show="!item.link">{{ item.text }}</span>
-      <span class="arrow" :class="open ? 'down' : 'right'"></span>
+      <span class="arrow" :class="open ? 'down' : 'right'" />
     </button>
 
     <DropdownTransition>

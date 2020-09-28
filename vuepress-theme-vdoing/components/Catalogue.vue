@@ -4,7 +4,7 @@
       <img :src="$withBase(pageData.imgUrl)" />
       <dl class="column-info">
         <dt class="title">{{ pageData.title }}</dt>
-        <dd class="description" v-html="pageData.description"></dd>
+        <dd class="description" v-html="pageData.description" />
       </dl>
     </div>
 

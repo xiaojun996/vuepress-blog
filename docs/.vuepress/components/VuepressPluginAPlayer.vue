@@ -29,7 +29,7 @@ export default {
     },
   },
   render() {
-    return <div id="VuepressPluginAPlayer"></div>
+    return <div id="VuepressPluginAPlayer" />
   },
 }
 </script>

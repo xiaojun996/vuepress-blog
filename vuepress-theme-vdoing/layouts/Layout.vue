@@ -2,7 +2,7 @@
   <div class="theme-container" :class="pageClasses" @touchstart="onTouchStart" @touchend="onTouchEnd">
     <Navbar v-if="shouldShowNavbar" @toggle-theme-mode="toggleThemeMode" @toggle-sidebar="toggleSidebar" />
 
-    <div class="sidebar-mask" @click="toggleSidebar(false)"></div>
+    <div class="sidebar-mask" @click="toggleSidebar(false)" />
 
     <Sidebar :items="sidebarItems" @toggle-sidebar="toggleSidebar" v-show="showSidebar">
       <template name="sidebar-top" #top />

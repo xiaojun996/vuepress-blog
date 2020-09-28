@@ -67,7 +67,7 @@ export default {
               this.switch()
             }}
           />
-          <div></div>
+          <div />
         </label>
       </div>
     )
