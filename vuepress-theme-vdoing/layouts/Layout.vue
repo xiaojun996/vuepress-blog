@@ -131,7 +131,7 @@ export default {
     }
 
     this.isSidebarOpenOfclientWidth()
-    const mode = storage.get('mode') || 'light'  // 不放在created是因为vuepress不能在created访问浏览器api，如window
+    const mode = storage.get('mode') || 'light' // 不放在created是因为vuepress不能在created访问浏览器api，如window
     this.themeMode = mode
 
     this.setBodyClass()
