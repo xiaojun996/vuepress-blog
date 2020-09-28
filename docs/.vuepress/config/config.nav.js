@@ -15,6 +15,14 @@ module.exports = [
       { text: 'Bash脚本文档', link: '/pages/e89ffe/' },
     ],
   },
+  {
+    text: 'Index',
+    items: [
+      { text: 'Archives', link: '/archives/' },
+      { text: 'Categories', link: '/categories/' },
+      { text: 'Tags', link: '/tags/' },
+    ],
+  },
   { text: 'About', link: '/pages/10790c/' },
   {
     text: 'Contact',
