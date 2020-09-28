@@ -12,6 +12,7 @@ module.exports = [
   ['link', { rel: 'preload', href: 'https://cdn.jsdelivr.net/gh/xiaojun996/CDN/images/anime/fate/998208.png', as: 'image' }],
   ['link', { rel: 'preload', href: 'https://cdn.jsdelivr.net/gh/xiaojun996/CDN/images/anime/fate/999332.png', as: 'image' }],
   ['link', { rel: 'preload', href: 'https://cdn.jsdelivr.net/gh/xiaojun996/CDN/images/anime/fate/1049978.png', as: 'image' }],
+  ['script', { src: 'https://cdn.jsdelivr.net/npm/live2d-widget@3.1.4/lib/L2Dwidget.min.js' }],
   [
     'meta',
     {

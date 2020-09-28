@@ -10,6 +10,7 @@ export default {
   },
   mounted() {
     !isMobile && this.dynamicImport()
+    !isMobile && this._initLive2dWidget()
   },
   methods: {
     async dynamicImport() {
@@ -19,6 +20,26 @@ export default {
       } catch (error) {
         console.info(error)
       }
+    },
+    _initLive2dWidget() {
+      setTimeout(() => {
+        window.L2Dwidget.init({
+          model: {
+            scale: 0.5,
+          },
+          display: {
+            position: 'right',
+            width: 360,
+            height: 520,
+            hOffset: 0,
+            vOffset: -20,
+          },
+          react: {
+            opacityDefault: 0.7,
+            opacityOnHover: 0.2,
+          },
+        })
+      }, 1000)
     },
   },
   render() {
