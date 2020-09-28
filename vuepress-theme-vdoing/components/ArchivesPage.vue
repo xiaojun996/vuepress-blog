@@ -32,7 +32,6 @@ export default {
   data() {
     return {
       postsList: [],
-
       perPage: 80, // 每页长
       currentPage: 1, // 当前页
     }
@@ -109,9 +108,10 @@ export default {
     li
       list-style none
       &.year
-        position sticky
+        // position sticky
         top $navbarHeight
-        background var(--mainBg)
+        // background var(--mainBg)
+        background transparentify
         z-index 1
       &.year:not(:first-child)
         margin-top 3.5rem
