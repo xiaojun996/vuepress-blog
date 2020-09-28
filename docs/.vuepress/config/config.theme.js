@@ -10,7 +10,7 @@ module.exports = {
     'https://cdn.jsdelivr.net/gh/xiaojun996/CDN/images/anime/fate/917480.png',
     'https://cdn.jsdelivr.net/gh/xiaojun996/CDN/images/anime/fate/998208.png',
     'https://cdn.jsdelivr.net/gh/xiaojun996/CDN/images/anime/fate/999332.png',
-    'https://cdn.jsdelivr.net/gh/xiaojun996/CDN/images/anime/fate/1049978.png',
+    // 'https://cdn.jsdelivr.net/gh/xiaojun996/CDN/images/anime/fate/1049978.png',
   ],
   bodyBgImgOpacity: 0.5,
   lastUpdated: 'Last Updated',
