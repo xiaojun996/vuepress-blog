@@ -28,7 +28,6 @@ export default {
     link() {
       return ensureExt(this.item.link)
     },
-
     exact() {
       if (this.$site.locales) {
         return Object.keys(this.$site.locales).some(rootLink => rootLink === this.link)
