@@ -143,7 +143,9 @@ export default {
       text-align center
       margin-top 1rem
       opacity 0.5
-.theme-mode-dark .archives-page .theme-vdoing-wrapper li a:hover, .theme-mode-read .archives-page .theme-vdoing-wrapper li a:hover
+// .theme-mode-dark .archives-page .theme-vdoing-wrapper li a:hover, .theme-mode-read .archives-page .theme-vdoing-wrapper li a:hover
+//   background var(--customBlockBg)
+.theme-mode-dark .archives-page .theme-vdoing-wrapper li a:hover li a:hover
   background var(--customBlockBg)
 .hide-navbar
   .archives-page
