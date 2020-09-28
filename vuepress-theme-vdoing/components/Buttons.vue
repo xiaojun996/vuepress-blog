@@ -269,11 +269,11 @@ export default {
         &.active
           background-color rgba(150, 150, 150, 0.2)
           color $accentColor
-.mode-enter-active, .mode-leave-active
-  transition all 0.3s
-.mode-enter, .mode-leave-to
-  opacity 0
-  transform scale(0.8)
+// .mode-enter-active, .mode-leave-active
+//   transition all 0.3s
+// .mode-enter, .mode-leave-to
+//   opacity 0
+//   transform scale(0.8)
 .fade-enter-active, .fade-leave-active
   transition opacity 0.2s
 .fade-enter, .fade-leave-to
