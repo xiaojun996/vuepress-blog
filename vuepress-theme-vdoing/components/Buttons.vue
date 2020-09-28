@@ -266,9 +266,9 @@ export default {
         font-size 0.95rem
         &:hover
           color $accentColor
-        &.active
-          background-color rgba(150, 150, 150, 0.2)
-          color $accentColor
+        // &.active
+        //   background-color rgba(150, 150, 150, 0.2)
+        //   color $accentColor
 // .mode-enter-active, .mode-leave-active
 //   transition all 0.3s
 // .mode-enter, .mode-leave-to
