@@ -51,10 +51,17 @@ module.exports = [
     },
   ],
   [
-    // 本地插件
+    // 本地插件 aplayer
     (pluginOptions, context) => ({
       name: 'vuepress-plugin-aplayer',
       globalUIComponents: ['DynamicImportAPlayer'],
-    })
-  ]
+    }),
+  ],
+  [
+    // 本地插件 live2d
+    (pluginOptions, context) => ({
+      name: 'vuepress-plugin-live2d',
+      globalUIComponents: ['VuepressPluginLive2d'],
+    }),
+  ],
 ]
