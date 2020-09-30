@@ -20,9 +20,17 @@ export default {
         audio: [
           {
             name: "Don't say lazy",
-            artist: '平沢唯・秋山澪・田井中律・琴吹紬',
+            artist: 'TV动画《轻音少女》 - 唯・澪・中律・紬',
             url: "https://cdn.jsdelivr.net/gh/xiaojun996/CDN/mp3/Don't say lazy.mp3",
+            lrc: "https://cdn.jsdelivr.net/gh/xiaojun996/CDN/lrc/Don't say lazy.lrc",
             cover: "https://cdn.jsdelivr.net/gh/xiaojun996/CDN/images/music/Don't say lazy.png",
+          },
+          {
+            name: "Pride",
+            artist: 'TV动画《听我的电波吧》片尾曲 - 遥海',
+            url: "https://cdn.jsdelivr.net/gh/xiaojun996/CDN/mp3/Pride.mp3",
+            lrc: "https://cdn.jsdelivr.net/gh/xiaojun996/CDN/lrc/Pride.lrc",
+            cover: "https://cdn.jsdelivr.net/gh/xiaojun996/CDN/images/music/Pride.png",
           },
         ],
       })
