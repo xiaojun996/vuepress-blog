@@ -17,6 +17,7 @@ export default {
         fixed: true,
         volume: 0.2,
         theme: '#1da1f2',
+        lrcType: 3,
         audio: [
           {
             name: "Don't say lazy",
