@@ -1,13 +1,14 @@
 module.exports = [
-  { text: '算法笔记', link: '/pages/c8d0c9/' },
+  { text: '算法', link: '/pages/c8d0c9/' },
   {
-    text: '前端笔记',
+    text: '前端',
     items: [
       { text: 'JavaScript笔记', link: '/pages/1e2d74/' },
       { text: 'Vue笔记', link: '/pages/4331e9/' },
       { text: 'CSS笔记', link: '/pages/b9190a/' },
     ],
   },
+  { text: 'Hackintosh', link: '/pages/b8569d/' },
   {
     text: 'Document',
     items: [
