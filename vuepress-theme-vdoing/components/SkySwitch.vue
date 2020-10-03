@@ -76,49 +76,27 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-// 按钮宽度
-$button-width: 3.5rem;
-// 按钮高度
-$button-height: 1.77rem;
-// 开关 直径
-$toggle-diameter: 1.53rem;
-// 按钮开关 偏移
-$button-toggle-offset: ($button-height - $toggle-diameter) / 2;
-// 开关 影子偏移
-$toggle-shadow-offset: 0.06rem;
-// 开关 长按时候宽度
-$toggle-wider: 2rem;
-// 开关 颜色
-$toggle-color: #eeeeee;
-// 浅灰色
-$color-grey: var(--stitchColor);
-
 .sky-switch {
-  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
   margin: 0 1rem;
   width: 100%;
 
-  &::after {
-    content: '🌚';
-    position: absolute;
-    left: $button-toggle-offset * 1;
-    top: 50%;
-    font-size: 1.4rem;
-    transform: translateY(-50%);
-  }
-
-  &::before {
-    content: '🌝';
-    position: absolute;
-    right: $button-toggle-offset * 1;
-    top: 50%;
-    font-size: 1.4rem;
-    transform: translateY(-50%);
-    z-index: 1;
-  }
+  // 按钮宽度
+  $button-width: 3rem;
+  // 按钮高度
+  $button-height: 1.77rem;
+  // 开关 直径
+  $toggle-diameter: 1.53rem;
+  // 按钮开关 偏移
+  $button-toggle-offset: ($button-height - $toggle-diameter) / 2;
+  // 开关 影子偏移
+  $toggle-shadow-offset: 0.06rem;
+  // 开关 长按时候宽度
+  $toggle-wider: 2.01rem;
+  // 浅灰色
+  $color-grey: var(--stitchColor);
 
   /* 按钮外部 */
   div {
@@ -128,10 +106,9 @@ $color-grey: var(--stitchColor);
     background: $color-grey;
     border-radius: $button-height / 2;
     transition: 0.3s all ease-in-out;
-
     /* 按钮🔘 */
     &::after {
-      content: '';
+      content: '🌝';
       cursor: pointer;
       position: absolute;
       top: $button-toggle-offset;
@@ -140,12 +117,12 @@ $color-grey: var(--stitchColor);
       align-items: center;
       width: $toggle-diameter;
       height: $toggle-diameter;
-      background-color: $toggle-color;
-      transform: translateX($button-toggle-offset);
-      transition: 0.3s all ease-in-out;
-      box-shadow: $toggle-shadow-offset 0 ($toggle-shadow-offset) * 4 rgba(0, 0, 0, 0.1);
+      font-size: $toggle-diameter;
+      line-height: $toggle-diameter;
       border-radius: $toggle-diameter / 2;
-      z-index: 1;
+      transform: translateX($button-toggle-offset);
+      box-shadow: $toggle-shadow-offset 0 ($toggle-shadow-offset) * 4 rgba(0, 0, 0, 0.1);
+      transition: 0.3s all ease-in-out;
     }
   }
   input[type='checkbox'] {
@@ -154,15 +131,9 @@ $color-grey: var(--stitchColor);
     &:checked {
       & + div {
         &::after {
+          content: '🌚';
           transform: translateX($button-width - $toggle-diameter - $button-toggle-offset);
           box-shadow: ($toggle-shadow-offset) * (-1) 0 ($toggle-shadow-offset) * 4 rgba(0, 0, 0, 0.1);
-        }
-      }
-    }
-    &:hover {
-      & + div {
-        &::after {
-          box-shadow: 0 0 0.5rem #ffffff;
         }
       }
     }
