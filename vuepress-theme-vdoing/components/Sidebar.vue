@@ -88,6 +88,7 @@ export default {
         color #777
 @media (max-width $MQMobile)
   .sidebar
+    z-index: 20;
     .blogger
       display flex
     .nav-links
