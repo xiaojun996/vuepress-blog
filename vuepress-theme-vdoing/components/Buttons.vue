@@ -14,27 +14,6 @@
       v-show="showCommentBut"
       @click="scrollToComment"
     />
-    <!-- <div
-      title="主题模式"
-      class="button blur theme-mode-but iconfont icon-zhuti"
-      @mouseenter="showModeBox = true"
-      @mouseleave="showModeBox = false"
-      @click="showModeBox = true"
-    >
-      <transition name="mode">
-        <ul class="select-box" ref="modeBox" v-show="showModeBox" @click.stop @touchstart.stop>
-          <li
-            v-for="item in modeList"
-            :key="item.KEY"
-            class="iconfont"
-            :class="[item.icon, { active: item.KEY === currentMode }]"
-            @click="toggleMode(item.KEY)"
-          >
-            {{ item.name }}
-          </li>
-        </ul>
-      </transition>
-    </div> -->
   </div>
 </template>
 
@@ -51,25 +30,6 @@ export default {
       scrollTop: null,
       showCommentBut: false,
       commentTop: null,
-      // currentMode: null,
-      // showModeBox: false,
-      // modeList: [
-      //   {
-      //     name: '浅色模式',
-      //     icon: 'icon-rijianmoshi',
-      //     KEY: 'light',
-      //   },
-      //   {
-      //     name: '深色模式',
-      //     icon: 'icon-yejianmoshi',
-      //     KEY: 'dark',
-      //   },
-      //   {
-      //     name: '阅读模式',
-      //     icon: 'icon-yuedu',
-      //     KEY: 'read',
-      //   },
-      // ],
       _scrollTimer: null,
       _textareaEl: null,
       _recordScrollTop: null,
@@ -90,9 +50,6 @@ export default {
     },
   },
   mounted() {
-    // this.modeObserver()
-    // this.currentMode = storage.get('mode') || 'auto'
-
     this.scrollTop = this.getScrollTop()
     window.addEventListener(
       'scroll',
@@ -104,22 +61,6 @@ export default {
     window.addEventListener('load', () => {
       this.getCommentTop()
     })
-
-    // 小屏时选择主题模式后关闭选择框
-    // if (document.documentElement.clientWidth < MOBILE_DESKTOP_BREAKPOINT) {
-    //   const modeBox = this.$refs.modeBox
-    //   modeBox.onclick = () => {
-    //     this.showModeBox = false
-    //   }
-    //   window.addEventListener(
-    //     'scroll',
-    //     debounce(() => {
-    //       if (this.showModeBox) {
-    //         this.showModeBox = false
-    //       }
-    //     }, 100)
-    //   )
-    // }
 
     // 移动端对类似:hover效果的处理
     const buttons = document.querySelectorAll('.buttons .button')
@@ -136,34 +77,6 @@ export default {
     }
   },
   methods: {
-    /**
-     * 观察body的class名，来判断是夜间模式还是别的
-     */
-    // modeObserver() {
-    //   // 选择需要观察变动的节点
-    //   const targetNode = document.getElementsByTagName('body')[0]
-
-    //   // 观察器的配置（需要观察什么变动）
-    //   const config = { attributes: true, childList: false, subtree: false }
-
-    //   // 当观察到变动时执行的回调函数
-    //   const callback = (mutationsList, observer) => {
-    //     this.currentMode = String(mutationsList[0].target.classList[0]).slice(11)
-    //   }
-
-    //   // 创建一个观察器实例并传入回调函数
-    //   const observer = new MutationObserver(callback)
-
-    //   // 以上述配置开始观察目标节点
-    //   observer.observe(targetNode, config)
-
-    //   // 组件销毁之后，可停止观察
-    //   this.$once('hook:beforeDestroy', () => observer.disconnect())
-    // },
-    // toggleMode(key) {
-    //   this.currentMode = key
-    //   this.$emit('toggle-theme-mode', key)
-    // },
     getScrollTop() {
       return window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0
     },

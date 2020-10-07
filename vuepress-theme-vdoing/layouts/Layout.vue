@@ -97,7 +97,6 @@ export default {
           'have-rightmenu': this.showRightMenu,
           'have-body-img': this.$themeConfig.bodyBgImg,
         },
-        // 'theme-mode-' + this.themeMode,
         userPageClass,
       ]
     },
