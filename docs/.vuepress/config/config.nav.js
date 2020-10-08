@@ -5,6 +5,7 @@ module.exports = [
     items: [
       { text: 'JavaScript笔记', link: '/pages/1e2d74/' },
       { text: 'Vue笔记', link: '/pages/4331e9/' },
+      { text: 'React笔记', link: '/pages/6e530c/' },
       { text: 'CSS笔记', link: '/pages/b9190a/' },
     ],
   },
