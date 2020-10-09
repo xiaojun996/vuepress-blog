@@ -3,11 +3,11 @@ module.exports = {
   sidebar: 'structuring', // 'structuring' | { mode: 'structuring', collapsable: Boolean} | 'auto' | 自定义
   search: true,
   bodyBgImg: [
-    'https://cdn.jsdelivr.net/gh/xiaojun996/CDN/images/anime/fate/688669.png',
+    // 'https://cdn.jsdelivr.net/gh/xiaojun996/CDN/images/anime/fate/688669.png',
     'https://cdn.jsdelivr.net/gh/xiaojun996/CDN/images/anime/fate/751262.png',
     'https://cdn.jsdelivr.net/gh/xiaojun996/CDN/images/anime/fate/843699.png',
-    'https://cdn.jsdelivr.net/gh/xiaojun996/CDN/images/anime/fate/862789.png',
-    'https://cdn.jsdelivr.net/gh/xiaojun996/CDN/images/anime/fate/917480.png',
+    // 'https://cdn.jsdelivr.net/gh/xiaojun996/CDN/images/anime/fate/862789.png',
+    // 'https://cdn.jsdelivr.net/gh/xiaojun996/CDN/images/anime/fate/917480.png',
     'https://cdn.jsdelivr.net/gh/xiaojun996/CDN/images/anime/fate/998208.png',
     'https://cdn.jsdelivr.net/gh/xiaojun996/CDN/images/anime/fate/999332.png',
     // 'https://cdn.jsdelivr.net/gh/xiaojun996/CDN/images/anime/fate/1049978.png',

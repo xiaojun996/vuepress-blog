@@ -4,11 +4,11 @@
 module.exports = [
   // favicons，资源放在public文件夹
   [ 'link', { rel: 'icon', href: '/img/favicon.ico' } ],
-  ['link', { rel: 'preload', href: 'https://cdn.jsdelivr.net/gh/xiaojun996/CDN/images/anime/fate/688669.png', as: 'image' }],
+  // ['link', { rel: 'preload', href: 'https://cdn.jsdelivr.net/gh/xiaojun996/CDN/images/anime/fate/688669.png', as: 'image' }],
   ['link', { rel: 'preload', href: 'https://cdn.jsdelivr.net/gh/xiaojun996/CDN/images/anime/fate/751262.png', as: 'image' }],
   ['link', { rel: 'preload', href: 'https://cdn.jsdelivr.net/gh/xiaojun996/CDN/images/anime/fate/843699.png', as: 'image' }],
-  ['link', { rel: 'preload', href: 'https://cdn.jsdelivr.net/gh/xiaojun996/CDN/images/anime/fate/862789.png', as: 'image' }],
-  ['link', { rel: 'preload', href: 'https://cdn.jsdelivr.net/gh/xiaojun996/CDN/images/anime/fate/917480.png', as: 'image' }],
+  // ['link', { rel: 'preload', href: 'https://cdn.jsdelivr.net/gh/xiaojun996/CDN/images/anime/fate/862789.png', as: 'image' }],
+  // ['link', { rel: 'preload', href: 'https://cdn.jsdelivr.net/gh/xiaojun996/CDN/images/anime/fate/917480.png', as: 'image' }],
   ['link', { rel: 'preload', href: 'https://cdn.jsdelivr.net/gh/xiaojun996/CDN/images/anime/fate/998208.png', as: 'image' }],
   ['link', { rel: 'preload', href: 'https://cdn.jsdelivr.net/gh/xiaojun996/CDN/images/anime/fate/999332.png', as: 'image' }],
   // ['link', { rel: 'preload', href: 'https://cdn.jsdelivr.net/gh/xiaojun996/CDN/images/anime/fate/1049978.png', as: 'image' }],
