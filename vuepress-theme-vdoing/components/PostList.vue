@@ -37,8 +37,9 @@
                 :to="`/categories/?category=${encodeURIComponent(c)}`"
                 v-for="(c, index) in item.frontmatter.categories"
                 :key="index"
-                >{{ c }}</router-link
               >
+                {{ c }}
+              </router-link>
             </span>
             <span
               title="标签"
