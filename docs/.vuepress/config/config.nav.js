@@ -1,5 +1,4 @@
 module.exports = [
-  { text: '算法', link: '/pages/c8d0c9/' },
   {
     text: '前端',
     items: [
@@ -9,23 +8,23 @@ module.exports = [
       { text: 'CSS笔记', link: '/pages/b9190a/' },
     ],
   },
-  { text: 'Hackintosh', link: '/pages/b8569d/' },
+  { text: 'Arithmetic', link: '/pages/c8d0c9/' },
   {
     text: 'Document',
     items: [
-      { text: 'ECMAScript6文档', link: '/pages/65966f/' },
-      { text: 'Bash脚本文档', link: '/pages/e89ffe/' },
+      { text: 'Hackintosh', link: '/pages/b8569d/' },
+      { text: 'ECMAScript6', link: '/pages/65966f/' },
+      { text: 'Bash脚本', link: '/pages/e89ffe/' },
     ],
   },
   {
-    text: 'Index',
+    text: 'Indexed',
     items: [
       { text: 'Archives', link: '/archives/' },
       { text: 'Categories', link: '/categories/' },
       { text: 'Tags', link: '/tags/' },
     ],
   },
-  { text: 'About', link: '/pages/10790c/' },
   {
     text: 'Contact',
     items: [
@@ -34,4 +33,5 @@ module.exports = [
       { text: 'Twitter', link: 'https://twitter.com/Luka_ai', target: '_blank' },
     ],
   },
+  { text: 'About', link: '/pages/10790c/' },
 ]
