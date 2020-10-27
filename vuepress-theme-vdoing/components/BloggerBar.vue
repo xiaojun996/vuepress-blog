@@ -1,7 +1,7 @@
 <template>
   <aside class="blogger-wrapper card-box">
     <div class="avatar">
-      <img :src="blogger.avatar" alt="头像" title="我好看吗" />
+      <img class="img" :src="blogger.avatar" alt="头像" title="我好看吗" />
     </div>
 
     <div class="icons" v-if="social">
@@ -47,9 +47,10 @@ export default {
     @media (max-width 900px)
       width 205px
       height 205px
-    img
+    .img
       width 100%
       height 100%
+      border-radius 5px
   .icons
     // border 1px solid var(--borderColor)
     border-top none
