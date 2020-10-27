@@ -138,6 +138,9 @@ export default {
       playTimer: 0,
       mark: 0,
 
+      gridBackground:
+        'background: rgb(40,40,40) url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACMAAAAjCAYAAAAe2bNZAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABOSURBVFhH7c6xCQAgDAVRR9A6E4hLu4uLiWJ7tSnuQcIvr2TRYsw3/zOGGEOMIcYQY4gxxBhiDDGGGEOMIcYQY4gxxBhiDLkx52W4Gn1tuslCtHJvL54AAAAASUVORK5CYII=)',
+
       total: 0, // 总长
       perPage: 10, // 每页长
       currentPage: 1, // 当前页
@@ -161,7 +164,7 @@ export default {
           return ''
         } else {
           // 网格纹背景
-          return 'background: rgb(40,40,45) url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACMAAAAjCAYAAAAe2bNZAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABOSURBVFhH7c6xCQAgDAVRR9A6E4hLu4uLiWJ7tSnuQcIvr2TRYsw3/zOGGEOMIcYQY4gxxBhiDDGGGEOMIcYQY4gxxBhiDLkx52W4Gn1tuslCtHJvL54AAAAASUVORK5CYII=)'
+          return this.gridBackground
         }
       } else if (bannerBg === 'none') {
         // 无背景
@@ -230,6 +233,7 @@ export default {
         }, 60)
       }
     })
+    this.modeObserver()
   },
   beforeDestroy() {
     clearTimeout(this.playTimer)
@@ -271,6 +275,38 @@ export default {
       this.playTimer = setTimeout(() => {
         this.slide.next()
       }, 4000)
+    },
+    /**
+     * 观察body的class名，来判断是夜间模式还是别的
+     */
+    modeObserver() {
+      // 选择需要观察变动的节点
+      const targetNode = document.getElementsByTagName('body')[0]
+
+      // 观察器的配置（需要观察什么变动）
+      const config = { attributes: true, childList: false, subtree: false }
+
+      // 当观察到变动时执行的回调函数
+      const callback = (mutationsList, observer) => {
+        let color = 'theme-mode-dark' === mutationsList[0].target.classList[0] ? true : false
+        if (color) {
+          console.info('darkdark')
+          this.gridBackground =
+            'background: rgb(60,60,60) url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACMAAAAjCAYAAAAe2bNZAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABOSURBVFhH7c6xCQAgDAVRR9A6E4hLu4uLiWJ7tSnuQcIvr2TRYsw3/zOGGEOMIcYQY4gxxBhiDDGGGEOMIcYQY4gxxBhiDLkx52W4Gn1tuslCtHJvL54AAAAASUVORK5CYII=)'
+        } else {
+          this.gridBackground =
+            'background: rgb(40,40,40) url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACMAAAAjCAYAAAAe2bNZAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABOSURBVFhH7c6xCQAgDAVRR9A6E4hLu4uLiWJ7tSnuQcIvr2TRYsw3/zOGGEOMIcYQY4gxxBhiDDGGGEOMIcYQY4gxxBhiDLkx52W4Gn1tuslCtHJvL54AAAAASUVORK5CYII=)'
+        }
+      }
+
+      // 创建一个观察器实例并传入回调函数
+      const observer = new MutationObserver(callback)
+
+      // 以上述配置开始观察目标节点
+      observer.observe(targetNode, config)
+
+      // 组件销毁之后，可停止观察
+      this.$once('hook:beforeDestroy', () => observer.disconnect())
     },
     handlePagination(i) {
       // 分页
