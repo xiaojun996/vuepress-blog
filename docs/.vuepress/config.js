@@ -15,4 +15,7 @@ module.exports = {
     nav,
     ...theme,
   },
+  markdown: {
+    lineNumbers: true,
+  },
 }
