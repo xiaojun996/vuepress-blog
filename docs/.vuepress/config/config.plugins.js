@@ -48,6 +48,15 @@ module.exports = [
         pagerDirection: 'last', // 'first'正序 | 'last'倒序
         labels: ['Gitalk', 'Comment'], // GitHub issue 的标签
       },
+      // choosen: 'valine',
+      // // options选项中的所有参数，会传给Valine的配置
+      // options: {
+      //   el: '#valine-vuepress-comment',
+      //   appId: 'g8HOBs1WpQJbKD2IKAxm9SmC-gzGzoHsz',
+      //   appKey: '5p99J0UJimyrII9Q6Vf8PtOn',
+      //   path: '<%- frontmatter.commentid || frontmatter.permalink %>',
+      //   visitor: true,
+      // },
     },
   ],
   [

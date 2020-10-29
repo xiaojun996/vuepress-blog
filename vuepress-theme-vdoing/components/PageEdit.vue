@@ -18,6 +18,11 @@
     <div class="last-updated" v-if="lastUpdated">
       <span class="prefix">{{ lastUpdatedText }}:</span>
       <span class="time">{{ lastUpdated }}</span>
+      <!-- id 将作为查询条件 -->
+      <!-- <span :id="$route.path" class="leancloud_visitors" data-flag-title="Your Article Title">
+        <em class="post-meta-item-text">阅读量</em>
+        <i class="leancloud-visitors-count">-</i>
+      </span> -->
     </div>
   </div>
 </template>
