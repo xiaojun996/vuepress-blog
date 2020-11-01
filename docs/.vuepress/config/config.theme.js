@@ -19,13 +19,13 @@ module.exports = {
   contentBgStyle: 1, //      1 => 方格 | 2 => 横线 | 3 => 竖线 | 4 => 左斜线 | 5 => 右斜线 | 6 => 点状
   author: {
     // 文章默认的作者信息，可在md文件中单独配置此信息 String | {name: String, link: String}
-    name: 'xiaojun', //                       必需
+    name: 'xiaojun996', //                       必需
     link: 'https://github.com/xiaojun996', // 可选的
   },
   blogger: {
     // 博主信息，显示在首页侧边栏
     avatar: 'https://cdn.jsdelivr.net/gh/xiaojun996/CDN/images/profile/02.比企谷八幡.png',
-    name: 'xiaojun',
+    name: 'xiaojun996',
     slogan: '没有期待就没有失望，没有羁绊就不会受伤。',
   },
   footer: {
