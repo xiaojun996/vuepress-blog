@@ -11,7 +11,9 @@
           <RightMenu v-if="showRightMenu" />
           <h1 v-if="showTitle">
             <img :src="currentBadge" v-if="$themeConfig.titleBadge === false ? false : true" />
-            {{ this.$page.title }}
+            <span>
+              {{ this.$page.title }}
+            </span>
           </h1>
           <Content class="theme-vdoing-content" />
         </div>
@@ -79,60 +81,102 @@ export default {
 </script>
 
 <style lang="stylus">
-@require '../styles/wrapper.styl'
+@require '../styles/wrapper.styl';
 
-.page
-  padding-bottom 2rem
-  display block
-  @media (max-width $MQMobile)
-    padding-top $navbarHeight
-  @media (min-width $MQMobile)
-    padding-top ($navbarHeight + 1.5rem)
-  >*
-    @extend $vdoing-wrapper
-.theme-vdoing-wrapper
-  .content-wrapper
-    position relative
-  h1 img
-    margin-bottom -0.2rem
-    max-width 2.2rem
-    max-height 2.2rem
-.theme-vdoing-wrapper
-  --linesColor rgba(50, 0, 0, 0.05)
-  &.bg-style-1 // 方格
-    background-image linear-gradient(90deg, var(--linesColor) 3%, transparent 3%), linear-gradient(0deg, var(--linesColor) 3%, transparent 3%)
-    background-position center center
-    background-size 20px 20px
-  &.bg-style-2 // 横线
-    background-image repeating-linear-gradient(0, var(--linesColor) 0, var(--linesColor) 1px, transparent 0, transparent 50%)
-    background-size 30px 30px
-  &.bg-style-3 // 竖线
-    background-image repeating-linear-gradient(90deg, var(--linesColor) 0, var(--linesColor) 1px, transparent 0, transparent 50%)
-    background-size 30px 30px
-  &.bg-style-4 // 左斜线
-    background-image repeating-linear-gradient(-45deg, var(--linesColor) 0, var(--linesColor) 1px, transparent 0, transparent 50%)
-    background-size 20px 20px
-  &.bg-style-5 // 右斜线
-    background-image repeating-linear-gradient(45deg, var(--linesColor) 0, var(--linesColor) 1px, transparent 0, transparent 50%)
-    background-size 20px 20px
-  &.bg-style-6 // 点状
-    background-image radial-gradient(var(--linesColor) 1px, transparent 1px)
-    background-size 10px 10px
+.page {
+  padding-bottom: 2rem;
+  display: block;
+
+  @media (max-width: $MQMobile) {
+    padding-top: $navbarHeight;
+  }
+
+  @media (min-width: $MQMobile) {
+    padding-top: ($navbarHeight + 1.5rem);
+  }
+
+  >* {
+    @extend $vdoing-wrapper;
+  }
+}
+
+.theme-vdoing-wrapper {
+  .content-wrapper {
+    position: relative;
+  }
+
+  h1  {
+    display: flex;
+    align-items: center;
+    img {
+      max-width: 2.2rem;
+      max-height: 2.2rem;
+    }
+  }
+}
+
+.theme-vdoing-wrapper {
+  --linesColor: rgba(50, 0, 0, 0.05);
+
+  &.bg-style-1 { // 方格
+    background-image: linear-gradient(90deg, var(--linesColor) 3%, transparent 3%), linear-gradient(0deg, var(--linesColor) 3%, transparent 3%);
+    background-position: center center;
+    background-size: 20px 20px;
+  }
+
+  &.bg-style-2 { // 横线
+    background-image: repeating-linear-gradient(0, var(--linesColor) 0, var(--linesColor) 1px, transparent 0, transparent 50%);
+    background-size: 30px 30px;
+  }
+
+  &.bg-style-3 { // 竖线
+    background-image: repeating-linear-gradient(90deg, var(--linesColor) 0, var(--linesColor) 1px, transparent 0, transparent 50%);
+    background-size: 30px 30px;
+  }
+
+  &.bg-style-4 { // 左斜线
+    background-image: repeating-linear-gradient(-45deg, var(--linesColor) 0, var(--linesColor) 1px, transparent 0, transparent 50%);
+    background-size: 20px 20px;
+  }
+
+  &.bg-style-5 { // 右斜线
+    background-image: repeating-linear-gradient(45deg, var(--linesColor) 0, var(--linesColor) 1px, transparent 0, transparent 50%);
+    background-size: 20px 20px;
+  }
+
+  &.bg-style-6 { // 点状
+    background-image: radial-gradient(var(--linesColor) 1px, transparent 1px);
+    background-size: 10px 10px;
+  }
+}
+
 // 背景纹适应深色模式
-.theme-mode-dark
-  .theme-vdoing-wrapper
-    --linesColor rgba(125, 125, 125, 0.05)
+.theme-mode-dark {
+  .theme-vdoing-wrapper {
+    --linesColor: rgba(125, 125, 125, 0.05);
+  }
+}
+
 /**
  * 右侧菜单的自适应
  */
-@media (min-width 720px) and (max-width 1279px)
-  .have-rightmenu
-    .page
-      padding-right 0.8rem !important
-@media (max-width 1279px)
-  .right-menu-wrapper
-    display none
-@media (min-width 1280px)
-  .sidebar .sidebar-sub-headers
-    display none
+@media (min-width: 720px) and (max-width: 1279px) {
+  .have-rightmenu {
+    .page {
+      padding-right: 0.8rem !important;
+    }
+  }
+}
+
+@media (max-width: 1279px) {
+  .right-menu-wrapper {
+    display: none;
+  }
+}
+
+@media (min-width: 1280px) {
+  .sidebar .sidebar-sub-headers {
+    display: none;
+  }
+}
 </style>
