@@ -9,7 +9,7 @@ export default {
   methods: {
     _initLive2dWidget() {
       setTimeout(() => {
-        window.L2Dwidget.init({
+        L2Dwidget.init({
           model: {
             scale: 0.5,
           },
