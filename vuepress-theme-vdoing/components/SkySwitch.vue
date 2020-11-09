@@ -134,21 +134,21 @@ export default {
       }
     }
     /* 单击后改变里面🔘的宽度 */
-    &:active {
-      & + div {
-        &::after {
-          width: $toggle-wider;
-        }
-      }
-    }
+    // &:active {
+    //   & + div {
+    //     &::after {
+    //       width: $toggle-wider;
+    //     }
+    //   }
+    // }
     /* 如果🔘是开，单击后 改变动画位置 */
-    &:checked:active {
-      & + div {
-        &::after {
-          transform: translateX($button-width - $toggle-wider - $button-toggle-offset);
-        }
-      }
-    }
+    // &:checked:active {
+    //   & + div {
+    //     &::after {
+    //       transform: translateX($button-width - $toggle-wider - $button-toggle-offset);
+    //     }
+    //   }
+    // }
   }
 }
 </style>
