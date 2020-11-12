@@ -22,8 +22,6 @@
 <script>
 export default {
   name: 'ImageShuffle',
-  components: {},
-  props: {},
   data() {
     return {
       adding: false,
@@ -36,16 +34,13 @@ export default {
       rightImgIndexes: [],
     }
   },
-  computed: {},
-  watch: {},
-  async created() {
+  async mounted() {
     this.loading = true
     const imgs = this.getSister()
     await preload(imgs)
     this.imgs = imgs
     this.loading = false
   },
-  mounted() {},
   methods: {
     /**
      * 追加图片
