@@ -1,19 +1,3 @@
-<template>
-  <div>
-    <component
-      v-if="dynamicComponent"
-      :is="dynamicComponent"
-      v-bind="{
-        items: items,
-        options: { shareEl: false },
-      }"
-    />
-    <template v-else>
-      <img v-for="item of items" :src="item.src" :key="item.src" />
-    </template>
-  </div>
-</template>
-
 <script>
 export default {
   name: 'DynamicImportPhotoSwipe',
@@ -31,6 +15,19 @@ export default {
   async mounted() {
     const module = await import('vue-picture-swipe')
     this.dynamicComponent = module.default
+  },
+  render() {
+    const { dynamicComponent, items } = this
+
+    return (
+      <div class="DynamicImportPhotoSwipe">
+        {dynamicComponent ? (
+          <dynamicComponent items={items} options={{ shareEl: false }} />
+        ) : (
+          items.map(item => <img src={item.src} key={item.src} />)
+        )}
+      </div>
+    )
   },
 }
 </script>
