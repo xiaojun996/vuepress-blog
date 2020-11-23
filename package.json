@@ -11,8 +11,8 @@
   "author": "xiaojun996 <xibie@gmail.com>",
   "license": "ISC",
   "devDependencies": {
-    "node-sass": "^4.14.1",
-    "sass-loader": "^10.0.5",
+    "node-sass": "^5.0.0",
+    "sass-loader": "^10.1.0",
     "vuepress": "^1.6.0",
     "vuepress-plugin-one-click-copy": "^1.0.2",
     "vuepress-plugin-thirdparty-search": "^1.0.2",
