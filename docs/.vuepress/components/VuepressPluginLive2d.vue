@@ -1,10 +1,18 @@
 <script>
 import { isMobile } from 'mobile-device-detect'
 
+const isIntel = () => {
+  const canvas = document.createElement('canvas')
+  const gl = canvas.getContext('webgl')
+  const debugInfo = gl.getExtension('WEBGL_debug_renderer_info')
+
+  return gl.getParameter(debugInfo.UNMASKED_VENDOR_WEBGL).includes('Intel')
+}
+
 export default {
   name: 'VuepressPluginLive2d',
   mounted() {
-    !isMobile && this._initLive2dWidget()
+    !isMobile && !isIntel() && this._initLive2dWidget()
   },
   methods: {
     _initLive2dWidget() {
