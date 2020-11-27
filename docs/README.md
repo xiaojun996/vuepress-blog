@@ -1,7 +1,7 @@
 ---
 home: true
 heroText: xiaojun996's blog
-tagline: 欢迎你的到访
+tagline: 日々私たちが过ごしている日常というのは、実は奇迹の连続なのかもしれん
 actionText: 查看索引
 actionLink: /archives/
 ---
