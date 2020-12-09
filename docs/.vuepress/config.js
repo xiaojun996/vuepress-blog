@@ -6,7 +6,7 @@ const theme = require('./config/config.theme')
 module.exports = {
   title: 'xiaojun996',
   description: 'haha~',
-  dest: './dist',
+  dest: './blog',
   head,
   plugins,
   // theme: 'vdoing', // 使用依赖包主题
