@@ -4,7 +4,7 @@
       <img :src="$withBase(pageData.imgUrl)" />
       <dl class="column-info">
         <dt class="title">{{ pageData.title }}</dt>
-        <dd class="description" v-html="pageData.description" />
+        <dd class="description" v-html="pageData.description"></dd>
       </dl>
     </div>
 
@@ -18,14 +18,28 @@
             </dt>
           </dl>
           <dl v-else-if="type(item) === 'object'" :key="index">
+            <!-- 一级目录 -->
             <dt :id="(anchorText = item.title)">
               <a :href="`#${anchorText}`" class="header-anchor">#</a>
               {{ `${index + 1}. ${item.title}` }}
             </dt>
             <dd>
-              <router-link :to="s[2]" v-for="(s, i) in item.children" :key="i">
-                {{ `${index + 1}-${i + 1}. ${s[1]}` }}
-              </router-link>
+              <!-- 二级目录 -->
+              <template v-for="(c, i) in item.children">
+                <template v-if="type(c) === 'array'">
+                  <router-link :to="c[2]" :key="i">{{ `${index + 1}-${i + 1}. ${c[1]}` }}</router-link>
+                </template>
+                <!-- 三级目录 -->
+                <div v-else-if="type(c) === 'object'" :key="i" class="sub-cat-wrap">
+                  <div :id="(anchorText = c.title)" class="sub-title">
+                    <a :href="`#${anchorText}`" class="header-anchor">#</a>
+                    {{ `${index + 1}-${i + 1}. ${c.title}` }}
+                  </div>
+                  <router-link v-for="(cc, ii) in c.children" :to="cc[2]" :key="`${index + 1}-${i + 1}-${ii + 1}`">
+                    {{ `${index + 1}-${i + 1}-${ii + 1}. ${cc[1]}` }}
+                  </router-link>
+                </div>
+              </template>
             </dd>
           </dl>
         </template>
@@ -42,14 +56,8 @@ export default {
       isStructuring: true,
     }
   },
-  watch: {
-    '$route.path'() {
-      this.getPageData()
-    },
-  },
   created() {
     this.getPageData()
-
     const sidebar = this.$themeConfig.sidebar
     if (!sidebar || sidebar === 'auto') {
       this.isStructuring = false
@@ -74,11 +82,10 @@ export default {
       const { sidebar } = this.$site.themeConfig
       const key = this.$frontmatter.pageComponent.data.key
       const catalogueList = sidebar[`/${key}/`]
-
       if (!catalogueList) {
         console.error('未获取到目录数据，请查看front matter中设置的key是否正确。')
       }
-
+      console.log(catalogueList)
       return catalogueList
     },
     type(o) {
@@ -87,6 +94,11 @@ export default {
         .call(o)
         .match(/\[object (.*?)\]/)[1]
         .toLowerCase()
+    },
+  },
+  watch: {
+    '$route.path'() {
+      this.getPageData()
     },
   },
 }
@@ -143,4 +155,15 @@ dl, dd
         width 50%
         @media (max-width $MQMobileNarrow)
           width 100%
+      .sub-cat-wrap
+        margin 5px 0 8px 0
+        font-size .95rem
+        .sub-title
+          margin-top -($navbarHeight)
+          padding-top $navbarHeight
+          margin-bottom 6px
+          font-size 1rem
+        &:hover
+          .header-anchor
+            opacity 1
 </style>

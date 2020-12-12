@@ -32,13 +32,20 @@ function setFrontmatter(sourceDir, themeConfig) {
       const dateStr = dateFormat(getBirthtime(stat)) // 文件的创建时间
       const categories = getCategories(file, categoryText)
 
+      let cateLabelStr = ''
+      categories.forEach(item => {
+        cateLabelStr += '\r\n  - ' + item
+      })
+
+      let cateStr = ''
+      if (!(isCategory === false)) {
+        cateStr = '\r\ncategories:' + cateLabelStr
+      }
+
       // 注意下面这些反引号字符串的格式会映射到文件
-      const cateStr =
-        isCategory === false
-          ? ''
-          : `
-categories:
-  - ${categories[0]}${categories[1] ? '\r\n  - ' + categories[1] : ''}`
+      //       const cateStr = isCategory === false ? '' : `
+      // categories:
+      //   - ${categories[0]}${categories[1] ? '\r\n  - ' + categories[1] : ''}`;
 
       const tagsStr =
         isTag === false
@@ -125,12 +132,15 @@ function getCategories(file, categoryText) {
 
   if (file.filePath.indexOf('_posts') === -1) {
     // 不在_posts文件夹
-    const filePathArr = file.filePath.split(path.sep) // path.sep用于兼容不同系统下的路径斜杠
-    const c = filePathArr[filePathArr.length - 3].split('.').pop() // 获取分类1
-    if (c !== 'docs') {
-      categories.push(c)
+    let filePathArr = file.filePath.split(path.sep) // path.sep用于兼容不同系统下的路径斜杠
+    filePathArr.pop()
+
+    let ind = filePathArr.indexOf('docs')
+    if (ind !== -1) {
+      while (filePathArr[++ind] !== undefined) {
+        categories.push(filePathArr[ind].split('.').pop()) // 获取分类
+      }
     }
-    categories.push(filePathArr[filePathArr.length - 2].split('.').pop()) // 获取分类2
   } else {
     categories.push(categoryText)
   }
