@@ -1,7 +1,7 @@
 <template>
   <div class="home-wrapper">
     <!-- banner块 s -->
-    <div class="banner" v-if="hideBanner" :class="{ 'hide-banner': !showBanner }" :style="bannerBgStyle">
+    <div class="banner" :class="{ 'hide-banner': !hideBanner || !showBanner }" :style="bannerBgStyle">
       <div class="banner-conent" :style="!homeData.features && !homeData.heroImage && `padding-top: 7rem`">
         <header class="hero">
           <img v-if="homeData.heroImage" :src="$withBase(homeData.heroImage)" :alt="homeData.heroAlt" />
@@ -74,7 +74,7 @@
     </div>
     <!-- banner块 e -->
 
-    <MainLayout :style="hideBanner === false && 'margin-top: 70px;'">
+    <MainLayout>
       <template #mainLeft>
         <!-- 简约版文章列表 -->
         <UpdateArticle class="card-box" v-if="homeData.postList === 'simple'" :length="5" />
@@ -153,7 +153,7 @@ export default {
      * 如果是手机才显示banner
      */
     hideBanner() {
-      return this.homeData.bannerShow || isMobile
+      return this.homeData.bannerShow|| isMobile
     },
     showBanner() {
       // 当分页不在第一页时隐藏banner栏

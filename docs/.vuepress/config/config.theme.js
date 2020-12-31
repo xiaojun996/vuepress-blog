@@ -16,7 +16,7 @@ module.exports = {
   // bodyBgImgOpacity: 1,
   lastUpdated: 'Last Updated',
   titleBadge: false,
-  titleBadgeIcons: ['https://cdn.jsdelivr.net/gh/xiaojun996/CDN/images/icon/blog.ico'],
+  // titleBadgeIcons: ['https://cdn.jsdelivr.net/gh/xiaojun996/CDN/images/icon/blog.ico'],
   contentBgStyle: 1, //      1 => 方格 | 2 => 横线 | 3 => 竖线 | 4 => 左斜线 | 5 => 右斜线 | 6 => 点状
   author: {
     // 文章默认的作者信息，可在md文件中单独配置此信息 String | {name: String, link: String}
