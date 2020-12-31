@@ -1,7 +1,7 @@
 <template>
   <div class="home-wrapper">
     <!-- banner块 s -->
-    <div class="banner" :class="{ 'hide-banner': !showBanner }" :style="bannerBgStyle">
+    <div class="banner" v-if="hideBanner" :class="{ 'hide-banner': !showBanner }" :style="bannerBgStyle">
       <div class="banner-conent" :style="!homeData.features && !homeData.heroImage && `padding-top: 7rem`">
         <header class="hero">
           <img v-if="homeData.heroImage" :src="$withBase(homeData.heroImage)" :alt="homeData.heroAlt" />
@@ -74,7 +74,7 @@
     </div>
     <!-- banner块 e -->
 
-    <MainLayout>
+    <MainLayout :style="hideBanner === false && 'margin-top: 70px;'">
       <template #mainLeft>
         <!-- 简约版文章列表 -->
         <UpdateArticle class="card-box" v-if="homeData.postList === 'simple'" :length="5" />
@@ -123,6 +123,8 @@ import BloggerBar from '@theme/components/BloggerBar'
 import CategoriesBar from '@theme/components/CategoriesBar'
 import TagsBar from '@theme/components/TagsBar'
 
+import { isMobile } from 'mobile-device-detect'
+
 const MOBILE_DESKTOP_BREAKPOINT = 720 // refer to config.styl
 
 BScroll.use(Slide)
@@ -147,6 +149,12 @@ export default {
     }
   },
   computed: {
+    /**
+     * 如果是手机才显示banner
+     */
+    hideBanner() {
+      return this.homeData.bannerShow || isMobile
+    },
     showBanner() {
       // 当分页不在第一页时隐藏banner栏
       return this.$route.query.p &&
