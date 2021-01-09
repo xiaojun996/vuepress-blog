@@ -18,6 +18,10 @@
     <template v-if="footer">
       | Copyright © {{ footer.createYear }}-{{ new Date().getFullYear() }}
       <span class="link" v-html="footer.copyrightInfo" @click="goLink" />
+      <template v-if="footer.icp">
+        <span>备案号：</span>
+        <a :href="footer.icpLink" target="_blank" title="备案号">{{ footer.icp }}</a>
+      </template>
     </template>
   </div>
 </template>
