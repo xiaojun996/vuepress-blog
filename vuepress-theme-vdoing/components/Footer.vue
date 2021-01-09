@@ -17,7 +17,7 @@
 
     <template v-if="footer">
       | Copyright © {{ footer.createYear }}-{{ new Date().getFullYear() }}
-      <span v-html="footer.copyrightInfo" />
+      <span class="link" v-html="footer.copyrightInfo" @click="goLink" />
     </template>
   </div>
 </template>
@@ -30,6 +30,13 @@ export default {
     },
     footer() {
       return this.$themeConfig.footer
+    },
+  },
+  methods: {
+    goLink() {
+      if (this.footer.copyrightInfoLink) {
+        window.open(this.footer.copyrightInfoLink)
+      }
     },
   },
 }
@@ -53,6 +60,8 @@ export default {
     color inherit
     &:hover
       color $accentColor
+  .link
+    cursor pointer
 @media (min-width ($MQMobile + 1px))
   .sidebar-open .footer
     width auto

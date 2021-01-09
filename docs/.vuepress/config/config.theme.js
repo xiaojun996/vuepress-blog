@@ -32,6 +32,7 @@ module.exports = {
   footer: {
     // 页脚信息
     createYear: 2019, // 博客创建年份
-    copyrightInfo: 'xiaojun996 备案号：闽ICP备20001770号',
+    copyrightInfo: 'xiaojun996 备案号：闽ICP备20001770号-1',
+    copyrightInfoLink: 'https://beian.miit.gov.cn/#/Integrated/index',
   },
 }
