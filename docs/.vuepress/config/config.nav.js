@@ -22,6 +22,7 @@ module.exports = [
       { text: 'Bash', link: '/pages/e89ffe/' },
       { text: 'ECMAScript6', link: '/pages/65966f/' },
       { text: 'Hackintosh', link: '/pages/b8569d/' },
+      { text: '常见符号中英文对照表', link: '/pages/4e2d6d/' },
     ],
   },
   { text: '片刻', link: '/pages/be163a/' },
@@ -31,14 +32,6 @@ module.exports = [
       { text: '档案', link: '/archives/' },
       { text: '分类', link: '/categories/' },
       { text: '标签', link: '/tags/' },
-    ],
-  },
-  {
-    text: 'Contact',
-    items: [
-      { text: 'GitHub', link: 'https://github.com/xiaojun996/', target: '_blank' },
-      { text: '掘金', link: 'https://juejin.im/user/2436173499732936', target: '_blank' },
-      { text: 'Twitter', link: 'https://twitter.com/Luka_ai', target: '_blank' },
     ],
   },
   { text: 'About', link: '/pages/10790c/' },
