@@ -1,5 +1,4 @@
 {
-  "include": [
-    "./docs/.vuepress/**/*"
-  ]
+  "include": ["./docs/.vuepress/**/*"],
+  "exclude": ["node_modules"]
 }
