@@ -1,6 +1,6 @@
 module.exports = [
   {
-    text: '笔记',
+    text: 'Notes',
     items: [
       { text: 'JavaScript', link: '/pages/1e2d74/' },
       { text: 'CSS', link: '/pages/b9190a/' },
@@ -9,7 +9,7 @@ module.exports = [
     ],
   },
   {
-    text: '算法',
+    text: 'Algorithm',
     items: [
       { text: 'LeetCode', link: '/pages/c8d0c9/' },
       { text: '排序算法', link: '/pages/9ec540/' },
@@ -17,7 +17,7 @@ module.exports = [
     ],
   },
   {
-    text: '文档',
+    text: 'Documents',
     items: [
       { text: 'Bash', link: '/pages/e89ffe/' },
       { text: 'ECMAScript6', link: '/pages/65966f/' },
@@ -25,13 +25,13 @@ module.exports = [
       { text: '常见符号中英文对照表', link: '/pages/4e2d6d/' },
     ],
   },
-  { text: '片刻', link: '/pages/be163a/' },
+  { text: 'Moments', link: '/pages/be163a/' },
   {
-    text: '索引',
+    text: 'Index',
     items: [
-      { text: '归档', link: '/archives/' },
-      { text: '分类', link: '/categories/' },
-      { text: '标签', link: '/tags/' },
+      { text: 'Archives', link: '/archives/' },
+      { text: 'Categories', link: '/categories/' },
+      { text: 'Tags', link: '/tags/' },
     ],
   },
   { text: 'About', link: '/pages/10790c/' },
