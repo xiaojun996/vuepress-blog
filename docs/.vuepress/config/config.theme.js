@@ -26,13 +26,13 @@ module.exports = {
   blogger: {
     // 博主信息，显示在首页侧边栏
     avatar: 'https://cdn.jsdelivr.net/gh/xiaojun996/CDN/images/profile/06.github-1.jpeg',
-    name: 'xiaojun996',
+    name: 'Zhixiang Yao',
     slogan: '没有期待就没有失望，没有羁绊就不会受伤。',
   },
   footer: {
     // 页脚信息
     createYear: 2019, // 博客创建年份
-    copyrightInfo: 'xiaojun996',
+    copyrightInfo: 'Zhixiang Yao',
     icp: '闽ICP备20001770号-1',
     icpLink: 'https://beian.miit.gov.cn/#/Integrated/index',
   },
