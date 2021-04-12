@@ -29,7 +29,7 @@ module.exports = [
   {
     text: '索引',
     items: [
-      { text: '档案', link: '/archives/' },
+      { text: '归档', link: '/archives/' },
       { text: '分类', link: '/categories/' },
       { text: '标签', link: '/tags/' },
     ],
