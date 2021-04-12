@@ -4,11 +4,15 @@
   "description": "A Vuepress blog project",
   "main": "index.js",
   "scripts": {
+    "bootstrap": "npm install",
     "dev": "vuepress dev docs",
     "build": "vuepress build docs"
   },
-  "keywords": [],
-  "author": "xiaojun996 <xibie@gmail.com>",
+  "keywords": [
+    "blog",
+    "vuepress"
+  ],
+  "author": "xiaojun996 <blueskyzx@icloud.com>",
   "license": "ISC",
   "devDependencies": {
     "@better-scroll/core": "^2.2.1",
