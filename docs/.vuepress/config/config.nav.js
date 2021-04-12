@@ -19,10 +19,12 @@ module.exports = [
   {
     text: 'Documents',
     items: [
+      { text: 'Node', link: '/pages/ac38c3/' },
+      { text: 'TCP/IP', link: '/pages/85fa5e/' },
+      { text: '术语', link: '/pages/4e2d6d/' },
       { text: 'Bash', link: '/pages/e89ffe/' },
       { text: 'ECMAScript6', link: '/pages/65966f/' },
       { text: 'Hackintosh', link: '/pages/b8569d/' },
-      { text: '常见符号中英文对照表', link: '/pages/4e2d6d/' },
     ],
   },
   { text: 'Moments', link: '/pages/be163a/' },
