@@ -27,7 +27,7 @@ module.exports = {
     // 博主信息，显示在首页侧边栏
     avatar: 'https://cdn.jsdelivr.net/gh/xiaojun996/CDN/images/profile/06.github-1.jpeg',
     name: 'Zhixiang Yao',
-    slogan: '没有期待就没有失望，没有羁绊就不会受伤。',
+    slogan: 'no game no happy, no anime no life.',
   },
   footer: {
     // 页脚信息
