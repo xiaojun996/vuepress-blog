@@ -2,7 +2,7 @@
   "name": "vuepress-blog",
   "version": "1.0.0",
   "description": "A Vuepress blog project",
-  "main": "index.js",
+  "main": "docs/.vuepress/config.js",
   "scripts": {
     "bootstrap": "npm install",
     "dev": "vuepress dev docs",
@@ -39,7 +39,7 @@
     "vuepress-plugin-container": "^2.1.5",
     "vuepress-plugin-element-tabs": "^0.2.8",
     "vuepress-plugin-one-click-copy": "^1.0.3",
-    "vuepress-plugin-smooth-scroll": "^0.0.3",
+    "vuepress-plugin-smooth-scroll": "^0.0.10",
     "vuepress-plugin-thirdparty-search": "^1.0.2"
   }
 }
