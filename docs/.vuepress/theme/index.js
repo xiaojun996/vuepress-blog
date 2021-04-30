@@ -4,7 +4,7 @@ const getSidebarData = require('./node_utils/getSidebarData')
 const { createPage, deletePage } = require('./node_utils/handlePage')
 const chalk = require('chalk') // 命令行打印美化
 const yaml = require('js-yaml') // yaml转js
-const log = console.log
+const { log } = console
 
 // md容器名
 const CARD_LIST = 'cardList'
