@@ -1,7 +1,9 @@
 .DS_Store
 node_modules/
 dist/
-blog/
+dist.zip
+blog
+blog.zip
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
