@@ -6,6 +6,7 @@ module.exports = [
       { text: 'CSS', link: '/pages/b9190a/' },
       { text: 'Vue', link: '/pages/4331e9/' },
       { text: 'React', link: '/pages/6e530c/' },
+      { text: 'Linex', link: '/pages/1ec763/' },
     ],
   },
   {
