@@ -7,6 +7,9 @@ module.exports = [
       { text: 'Vue', link: '/pages/4331e9/' },
       { text: 'React', link: '/pages/6e530c/' },
       { text: 'Linex', link: '/pages/1ec763/' },
+      { text: 'Node', link: '/pages/ac38c3/' },
+      { text: 'TCP/IP', link: '/pages/85fa5e/' },
+      { text: '术语', link: '/pages/4e2d6d/' },
     ],
   },
   {
@@ -20,9 +23,6 @@ module.exports = [
   {
     text: 'Documents',
     items: [
-      { text: 'Node', link: '/pages/ac38c3/' },
-      { text: 'TCP/IP', link: '/pages/85fa5e/' },
-      { text: '术语', link: '/pages/4e2d6d/' },
       { text: 'Bash', link: '/pages/e89ffe/' },
       { text: 'ECMAScript6', link: '/pages/65966f/' },
       { text: 'Hackintosh', link: '/pages/b8569d/' },
