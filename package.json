@@ -7,7 +7,7 @@
     "bootstrap": "npm install",
     "dev": "vuepress dev docs",
     "build": "vuepress build docs",
-    "zip": "zip -r blog.zip blog/"
+    "zip": "rimraf blog.zip && zip -r blog.zip blog/ && rimraf blog"
   },
   "keywords": [
     "blog",
