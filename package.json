@@ -6,7 +6,8 @@
   "scripts": {
     "bootstrap": "npm install",
     "dev": "vuepress dev docs",
-    "build": "vuepress build docs"
+    "build": "vuepress build docs",
+    "zip": "zip -r blog.zip blog/"
   },
   "keywords": [
     "blog",
