@@ -8,7 +8,7 @@
       <button @click="shuffle">乱序图片</button>
       <button @click="reset">重置</button>
     </div>
-    
+
     <div v-if="loading" class="loading">正在加载图片……</div>
 
     <div v-else class="wrap">
@@ -232,7 +232,7 @@ const shuffle = oldDomList => {
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="stylus" scoped>
 .image-shuffle {
   flex-direction: column;
   max-width: 500px;

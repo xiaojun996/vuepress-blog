@@ -30,17 +30,16 @@
     "json2yaml": "^1.1.0",
     "lodash": "^4.17.21",
     "mobile-device-detect": "^0.4.3",
-    "node-sass": "^6.0.0",
-    "sass-loader": "^10.2.0",
     "stylus": "^0.54.8",
     "stylus-loader": "^3.0.2",
     "vue-picture-swipe": "^2.1.0",
+    "vue-tabs-component": "^1.5.0",
     "vuepress": "^1.8.2",
     "vuepress-plugin-comment": "^0.7.3",
     "vuepress-plugin-container": "^2.1.5",
-    "vuepress-plugin-element-tabs": "^0.2.8",
     "vuepress-plugin-one-click-copy": "^1.0.3",
     "vuepress-plugin-smooth-scroll": "^0.0.10",
+    "vuepress-plugin-tabs": "^0.3.0",
     "vuepress-plugin-thirdparty-search": "^1.0.2"
   }
 }

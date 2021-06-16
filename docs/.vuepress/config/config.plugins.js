@@ -73,5 +73,5 @@ module.exports = [
       globalUIComponents: ['VuepressPluginLive2d'],
     }),
   ],
-  'vuepress-plugin-element-tabs',
+  'tabs',
 ]
