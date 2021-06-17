@@ -1,5 +1,14 @@
 @require '~vuepress-plugin-tabs/dist/themes/default.styl'
 
+section.tabs-component-panel::before {
+    content: '';
+    display: block;
+    position: relative;
+    width: 0;
+    height: 10em;
+    margin-top: -10em;
+}
+
 .gt-container {
   /* 修复评论markdown图标不对齐 */
   .gt-ico {
