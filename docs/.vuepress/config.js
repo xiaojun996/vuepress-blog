@@ -4,7 +4,7 @@ const plugins = require('./config/config.plugins')
 const theme = require('./config/config.theme')
 
 module.exports = {
-  title: 'xiaojun996',
+  title: 'yao-zhixiang',
   description: 'haha~',
   dest: './blog',
   head,

@@ -4,28 +4,28 @@ module.exports = {
   sidebar: 'structuring', // 'structuring' | { mode: 'structuring', collapsable: Boolean} | 'auto' | 自定义
   search: true,
   // bodyBgImg: [
-  //   'https://cdn.jsdelivr.net/gh/xiaojun996/CDN/images/anime/fate/688669.png',
-  //   'https://cdn.jsdelivr.net/gh/xiaojun996/CDN/images/anime/fate/751262.png',
-  //   'https://cdn.jsdelivr.net/gh/xiaojun996/CDN/images/anime/fate/843699.png',
-  //   'https://cdn.jsdelivr.net/gh/xiaojun996/CDN/images/anime/fate/862789.png',
-  //   'https://cdn.jsdelivr.net/gh/xiaojun996/CDN/images/anime/fate/917480.png',
-  //   'https://cdn.jsdelivr.net/gh/xiaojun996/CDN/images/anime/fate/998208.png',
-  //   'https://cdn.jsdelivr.net/gh/xiaojun996/CDN/images/anime/fate/999332.png',
-  //   'https://cdn.jsdelivr.net/gh/xiaojun996/CDN/images/anime/fate/1049978.png',
+  //   'https://cdn.jsdelivr.net/gh/yao-zhixiang/CDN/images/anime/fate/688669.png',
+  //   'https://cdn.jsdelivr.net/gh/yao-zhixiang/CDN/images/anime/fate/751262.png',
+  //   'https://cdn.jsdelivr.net/gh/yao-zhixiang/CDN/images/anime/fate/843699.png',
+  //   'https://cdn.jsdelivr.net/gh/yao-zhixiang/CDN/images/anime/fate/862789.png',
+  //   'https://cdn.jsdelivr.net/gh/yao-zhixiang/CDN/images/anime/fate/917480.png',
+  //   'https://cdn.jsdelivr.net/gh/yao-zhixiang/CDN/images/anime/fate/998208.png',
+  //   'https://cdn.jsdelivr.net/gh/yao-zhixiang/CDN/images/anime/fate/999332.png',
+  //   'https://cdn.jsdelivr.net/gh/yao-zhixiang/CDN/images/anime/fate/1049978.png',
   // ],
   // bodyBgImgOpacity: 1,
   lastUpdated: 'Last Updated',
   titleBadge: false,
-  // titleBadgeIcons: ['https://cdn.jsdelivr.net/gh/xiaojun996/CDN/images/icon/blog.ico'],
+  // titleBadgeIcons: ['https://cdn.jsdelivr.net/gh/yao-zhixiang/CDN/images/icon/blog.ico'],
   contentBgStyle: 1, //      1 => 方格 | 2 => 横线 | 3 => 竖线 | 4 => 左斜线 | 5 => 右斜线 | 6 => 点状
   author: {
     // 文章默认的作者信息，可在md文件中单独配置此信息 String | {name: String, link: String}
-    name: 'xiaojun996', //                       必需
-    link: 'https://github.com/xiaojun996', // 可选的
+    name: 'yao-zhixiang', //                       必需
+    link: 'https://github.com/yao-zhixiang', // 可选的
   },
   blogger: {
     // 博主信息，显示在首页侧边栏
-    avatar: 'https://cdn.jsdelivr.net/gh/xiaojun996/CDN/images/profile/06.github-1.jpeg',
+    avatar: 'https://cdn.jsdelivr.net/gh/yao-zhixiang/CDN/images/profile/06.github-1.jpeg',
     name: 'Zhixiang Yao',
     slogan: 'no game no happy, no anime no life.',
   },

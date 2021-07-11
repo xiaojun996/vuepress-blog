@@ -13,7 +13,7 @@
     "blog",
     "vuepress"
   ],
-  "author": "xiaojun996 <blueskyzx@icloud.com>",
+  "author": "yao-zhixiang <blueskyzx@icloud.com>",
   "license": "MIT",
   "devDependencies": {
     "@better-scroll/core": "^2.2.1",
