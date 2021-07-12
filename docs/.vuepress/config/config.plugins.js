@@ -41,9 +41,9 @@ module.exports = [
       options: {
         clientID: '75a9348ccc20817c9860',
         clientSecret: 'a98651f4a65203ecdb4db26cdd09f9f58d1b1371',
-        repo: 'yao-zhixiang',
-        owner: 'yao-zhixiang',
-        admin: ['yao-zhixiang'],
+        repo: 'zhixiangyao',
+        owner: 'zhixiangyao',
+        admin: ['zhixiangyao'],
         distractionFreeMode: false,
         pagerDirection: 'last', // 'first'正序 | 'last'倒序
         labels: ['Gitalk', 'Comment'], // GitHub issue 的标签

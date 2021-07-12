@@ -22,16 +22,16 @@ export default {
           {
             name: "Don't say lazy",
             artist: 'TV动画《轻音少女》 - 唯・澪・中律・紬',
-            url: "https://cdn.jsdelivr.net/gh/yao-zhixiang/CDN/mp3/Don't say lazy.mp3",
-            lrc: "https://cdn.jsdelivr.net/gh/yao-zhixiang/CDN/lrc/Don't say lazy.lrc",
-            cover: "https://cdn.jsdelivr.net/gh/yao-zhixiang/CDN/images/music/Don't say lazy.png",
+            url: "https://cdn.jsdelivr.net/gh/zhixiangyao/CDN/mp3/Don't say lazy.mp3",
+            lrc: "https://cdn.jsdelivr.net/gh/zhixiangyao/CDN/lrc/Don't say lazy.lrc",
+            cover: "https://cdn.jsdelivr.net/gh/zhixiangyao/CDN/images/music/Don't say lazy.png",
           },
           {
             name: 'Pride',
             artist: 'TV动画《听我的电波吧》片尾曲 - 遥海',
-            url: 'https://cdn.jsdelivr.net/gh/yao-zhixiang/CDN/mp3/Pride.mp3',
-            lrc: 'https://cdn.jsdelivr.net/gh/yao-zhixiang/CDN/lrc/Pride.lrc',
-            cover: 'https://cdn.jsdelivr.net/gh/yao-zhixiang/CDN/images/music/Pride.png',
+            url: 'https://cdn.jsdelivr.net/gh/zhixiangyao/CDN/mp3/Pride.mp3',
+            lrc: 'https://cdn.jsdelivr.net/gh/zhixiangyao/CDN/lrc/Pride.lrc',
+            cover: 'https://cdn.jsdelivr.net/gh/zhixiangyao/CDN/images/music/Pride.png',
           },
         ],
       })
