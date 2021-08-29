@@ -11,6 +11,7 @@ module.exports = [
       { text: 'TypeScript', link: '/pages/19473c/' },
       { text: 'TCP/IP', link: '/pages/85fa5e/' },
       { text: '术语', link: '/pages/4e2d6d/' },
+      { text: '面试题', link: '/pages/eb5e1d/' },
     ],
   },
   {
