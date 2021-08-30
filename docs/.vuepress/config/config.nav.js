@@ -8,10 +8,10 @@ module.exports = [
       { text: 'React', link: '/pages/6e530c/' },
       { text: 'Linex', link: '/pages/1ec763/' },
       { text: 'Node', link: '/pages/ac38c3/' },
-      { text: 'TypeScript', link: '/pages/19473c/' },
+      { text: 'WebpackBabel', link: '/pages/79aeee/' },
       { text: 'TCP/IP', link: '/pages/85fa5e/' },
+      { text: 'TypeScript', link: '/pages/19473c/' },
       { text: '术语', link: '/pages/4e2d6d/' },
-      { text: '面试题', link: '/pages/eb5e1d/' },
     ],
   },
   {
