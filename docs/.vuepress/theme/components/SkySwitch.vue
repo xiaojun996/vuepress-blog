@@ -98,7 +98,7 @@ export default {
       content: '🌝';
       cursor: pointer;
       position: absolute;
-      top: $button-toggle-offset * 2;
+      top: $button-toggle-offset;
       display: flex;
       justify-content: center;
       align-items: center;
