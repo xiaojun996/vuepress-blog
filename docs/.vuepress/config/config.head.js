@@ -13,6 +13,7 @@ module.exports = [
   // ['link', { rel: 'preload', href: 'https://cdn.jsdelivr.net/gh/zhixiangyao/CDN/images/anime/fate/999332.png', as: 'image' }],
   // ['link', { rel: 'preload', href: 'https://cdn.jsdelivr.net/gh/zhixiangyao/CDN/images/anime/fate/1049978.png', as: 'image' }],
   ['script', { src: 'https://cdn.jsdelivr.net/npm/live2d-widget@3.1.4/lib/L2Dwidget.min.js' }],
+  ['script', { src: 'https://www.googletagmanager.com/gtag/js?id=G-1E9XR885EH' }],
   [
     'meta',
     {

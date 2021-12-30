@@ -73,5 +73,12 @@ module.exports = [
       globalUIComponents: ['VuepressPluginLive2d'],
     }),
   ],
+  [
+    // 本地插件 live2d
+    (pluginOptions, context) => ({
+      name: 'google-analytics',
+      globalUIComponents: ['GoogleAnalytics'],
+    }),
+  ],
   'tabs',
 ]
