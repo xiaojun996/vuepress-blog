@@ -33,7 +33,5 @@ module.exports = {
     // 页脚信息
     createYear: 2019, // 博客创建年份
     copyrightInfo: 'Zhixiang Yao',
-    icp: '闽ICP备20001770号-1',
-    icpLink: 'https://beian.miit.gov.cn/#/Integrated/index',
   },
 }
