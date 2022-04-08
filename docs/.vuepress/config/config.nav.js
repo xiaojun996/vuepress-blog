@@ -12,6 +12,7 @@ module.exports = [
       { text: 'TCP/IP', link: '/pages/85fa5e/' },
       { text: 'TypeScript', link: '/pages/19473c/' },
       { text: '术语', link: '/pages/4e2d6d/' },
+      { text: 'Git', link: '/pages/be920a/' },
     ],
   },
   {
