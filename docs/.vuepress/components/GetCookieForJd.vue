@@ -6,7 +6,7 @@
     <button :disabled="!cookie" @click="filter">筛选</button>
 
     <h3>JD Cookie{{msg ? ` (${msg})` : ''}}:</h3>
-    <code v-model="jdCookie"></code>
+    <code>{{jdCookie}}</code>
   </div>
 </template>
 
