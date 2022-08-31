@@ -31,7 +31,7 @@ export default {
     filter() {
       const cookieValue = getToken(this.cookie)
       if (cookieValue) {
-        this.jdCookie = cookieValue
+        this.jdCookie = encodeURI(cookieValue)
         window.copy && window.copy(this.jdCookie)
         this.msg = '过滤成功'
       } else {
